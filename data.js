@@ -20,3 +20,13 @@ async function fetchPreviousClosePrice() {
 }
 
 console.log(fetchPreviousClosePrice())
+
+function saveStockPrice(price) {
+    // You can implement your saving logic here, for example:
+    // Saving to localStorage
+    localStorage.setItem('apple_previous_close_price', price);
+    console.log('Previous day\'s close price saved:', price);
+  }
+  
+  // Call the function to fetch and save the previous day's close price
+  fetchPreviousClosePrice();
