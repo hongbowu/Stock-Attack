@@ -1,3 +1,10 @@
-const Stock = require('./Stock');
+const { Schema, model } = require ('mongoose');
 
-module.exports = { Stock };
+const stockSchema = new Schema ({
+
+
+});
+
+const Stock = model('Stock', stockSchema);
+
+module.exports = Stock;
