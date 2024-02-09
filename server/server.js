@@ -7,7 +7,16 @@ const express = require('express');
 // SCHEMAS AND CONNECTIONS
   const { typeDefs, resolvers } = require('./schemas');
   const db = require('./config/connection');
+  // const server = new ApolloServer({ typeDefs, resolvers });
 
+
+// APP/PORT/SERVER PAS________________________________________  
+const PORT = process.env.PORT || 3001;
+const app = express();
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 // FUNCTION TO START APOLLO SERVER WIHIN EXPRESSJS _________________  
   const startApolloServer = async () => {

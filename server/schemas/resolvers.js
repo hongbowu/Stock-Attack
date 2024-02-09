@@ -1,19 +1,20 @@
-const { Stock } require('../models');
+const Stock = require('../models');
 
 const resolvers = {
 
   Query: {
 
+      stocks: async () => {
+        return await Stock 
+          .find();
+      }
 
   },
 
-  Mutation: {
-
-
-  }
 
 
 
-}
+
+};
 
 module.exports = resolvers;

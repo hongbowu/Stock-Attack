@@ -1,20 +1,17 @@
 const typeDefs = `
 
-    type nameHere {
-
+    type Stock {
+        _id: ID
+        name: String
 
     }
 
 
     type Query {
-
+        stocks: Stock
     }
 
-    type Mutation {
-
-      
-    }
-
+ 
 
 `;
 
