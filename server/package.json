@@ -1,23 +1,23 @@
 {
-  "name": "stock-finder",
+  "name": "stock-finder-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
-  "Important for MERN Setup": {
-    "line-10": "We use this top-level package.json file to define scripts we can run to control our entire application from the same CLI location",
-    "line-21": "The concurrently npm tool allows us to execute two CLI processes... concurrently!"
-  },
+  "main": "server.js",
   "scripts": {
-    "start": "",
-    "develop": "",
-    "install": "",
-    "seed": "",
-    "build": ""
+    "start": "node server.js",
+    "develop": "nodemon server.js",
+    "seed": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.7.1",
+    "express": "^4.17.2",
+    "graphql": "^16.6.0",
+    "mongoose": "^7.0.2"
+  },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+     "nodemon": "^3.0.3"
   }
 }
