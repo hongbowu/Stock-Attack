@@ -1,5 +1,5 @@
 require('dotenv').config()
- // Replace 'YOUR_API_KEY' with your actual API key from Polygon.io
+
 
 // Function to fetch previous day's close price, current stock price, ticker symbol, and company name of Apple (AAPL) stock
 async function fetchStockData() {
@@ -26,7 +26,6 @@ async function fetchStockData() {
         currentPrice
       };
   
-      // Assuming you have a function to handle the stock data, you can call it here
       handleStockData(stockData);
     } catch (error) {
       console.error('Error fetching stock data:', error);
@@ -44,5 +43,15 @@ async function fetchStockData() {
     return `${year}-${month}-${day}`;
   }
   
- 
+
+   // Function to handle the stock data
+   function handleStockData(data) {
+    // You can implement your handling logic here, for example:
+    console.log('Symbol:', data.symbol);
+    console.log('Company Name:', data.companyName);
+    console.log('Previous day\'s close price:', data.prevClosePrice);
+    console.log('Current stock price:', data.currentPrice);
+  }
   
+  // Call the function to fetch and handle stock data
+  fetchStockData();
