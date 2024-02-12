@@ -14,3 +14,9 @@ async function fetchStockData() {
     const infoResponse = await fetch(`https://api.polygon.io/v1/meta/symbols/AAPL/company?apiKey=${process.env.API_KEY}`);
     const infoData = await infoResponse.json();
 
+    const prevClosePrice = prevCloseData.results && prevCloseData.results.length > 0 ? prevCloseData.results[0].c : null;
+    const currentPrice = currentPriceData.results && currentPriceData.results.length > 0 ? currentPriceData.results[0].c : null;
+    const symbol = infoData.symbol || null;
+    const companyName = infoData.name || null;
+
+    
