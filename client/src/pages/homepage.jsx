@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Homepage = () => {
   return (
@@ -10,8 +10,10 @@ const Homepage = () => {
         portfolio.
       </p>
       <div>
-        <Link to="/signup">Sign Up Now</Link>
+        {/* <Link to="/signup">Sign Up Now</Link> */}
       </div>
     </div>
   );
 };
+
+export default Homepage;
