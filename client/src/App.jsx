@@ -3,7 +3,6 @@ import Dashboard from './pages/dashboard';
 import Homepage from './pages/homepage';
 import Login from './pages/login';
 import Signup from './pages/signup';
-import Sinup from './pages/signup';
 
 function App() {
   // return <Dashboard />;
