@@ -27,6 +27,14 @@ const resolvers = {
 
   },
 
+  Mutation: {
+    addStock: async (parent, { ticker }) => {
+      return Stock.create({ ticker });
+    }
+
+
+  }
+
 
 
 };

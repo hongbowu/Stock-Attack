@@ -26,6 +26,8 @@ const typeDefs = `
         user(id: ID!): User
     }
 
+
+   
  
 
 `;
