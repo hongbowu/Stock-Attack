@@ -10,7 +10,8 @@ const Homepage = () => {
         portfolio.
       </p>
       <div>
-        {/* <Link to="/signup">Sign Up Now</Link> */}
+        <button>Sign-up</button>
+        <button>Login</button>
       </div>
     </div>
   );
