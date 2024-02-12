@@ -4,6 +4,12 @@ const { Stock, User } = require('../models');
 const resolvers = {
 
   Query: {
+    
+      users: async () => {
+        return await User
+          .find({})
+          .populate('stocks');
+      },
 
       stocks: async () => {
         return await Stock 
@@ -11,11 +17,7 @@ const resolvers = {
 
       },   
 
-      users: async () => {
-        return await User
-          .find({})
-          .populate('stocks');
-      },
+
 
       user: async (parent, { id }) => {
         return await User 

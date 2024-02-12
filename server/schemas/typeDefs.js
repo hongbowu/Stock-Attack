@@ -1,12 +1,5 @@
 const typeDefs = `
 
-    type Stock {
-        _id: ID
-        ticker: String
-        name: String
-
-    }
-
     type User {
         _id: ID
         name: String
@@ -14,6 +7,15 @@ const typeDefs = `
         stocks: [Stock]
 
     }
+
+    
+    type Stock {
+        _id: ID
+        ticker: String
+        name: String
+
+    }
+
 
 
 

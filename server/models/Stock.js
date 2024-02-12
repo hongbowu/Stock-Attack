@@ -4,23 +4,17 @@ const stockSchema = new Schema({
 
   ticker: {
     type: String,
-    required: true,
+    // required: true,
 
   },
 
   name: {
     type: String,
-    required: true,
+    // required: true,
 
   },
 
  
-
-
-  
-  
-  
-  
 
 });
 
