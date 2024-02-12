@@ -14,7 +14,7 @@ async function fetchStockData() {
     const infoData = await infoResponse.json();
 
     // Fetch additional data from Finnhub API
-    const finnhubResponse = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${apiKey}`);
+    const finnhubResponse = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${process.env.API_KEY2}`);
     const finnhubData = await finnhubResponse.json();
 
 
@@ -37,10 +37,9 @@ async function fetchStockData() {
     }
   }
   
-  // Function to get current date in the format YYYY-MM-DD
+
 
   
-
    // Function to handle the stock data
    function handleStockData(data) {
     console.log('Symbol:', data.symbol);
