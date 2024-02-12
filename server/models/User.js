@@ -24,11 +24,12 @@ const userSchema = new Schema({
     minlength: 5,
 
   },
-  stock: {
-    type: Schema.Types.ObjectId,
-    ref: 'Stock'
-  }
-
+  stock: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Stock'
+    }
+  ]
  
 
 });

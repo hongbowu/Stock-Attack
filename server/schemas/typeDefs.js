@@ -6,6 +6,7 @@ const typeDefs = `
         name: String
 
     }
+    
     type User {
         _id: ID
         name: String
