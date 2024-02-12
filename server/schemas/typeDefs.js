@@ -27,7 +27,10 @@ const typeDefs = `
     }
 
 
-   
+   type Mutation {
+
+    addStock(ticker: String!): Stock
+   }
  
 
 `;
