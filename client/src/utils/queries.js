@@ -39,3 +39,14 @@ export const QUERY_SINGLE_USERS = gql`
         }
     }
 `;
+
+export const QUERY_SINGLE_STOCKS = gql`
+    query getStock($stocks: _id) {
+        stock(_id: ID) {
+            _id
+            ticker
+            name
+        }
+    }
+        
+`;
