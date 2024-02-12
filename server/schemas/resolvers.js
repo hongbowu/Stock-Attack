@@ -1,5 +1,5 @@
-const Stock = require('../models');
-const User = require('../models/User');
+const { Stock, User } = require('../models');
+
 
 const resolvers = {
 
