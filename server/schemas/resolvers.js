@@ -1,4 +1,5 @@
 const Stock = require('../models');
+const User = require('../models/User');
 
 const resolvers = {
 
@@ -6,6 +7,11 @@ const resolvers = {
 
       stocks: async () => {
         return await Stock 
+          .find();
+      },
+
+      users: async () => {
+        return User
           .find();
       }
 
