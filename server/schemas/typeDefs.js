@@ -6,11 +6,12 @@ const typeDefs = `
         name: String
 
     }
-    
+
     type User {
         _id: ID
         name: String
         email: String
+        stocks: [Stock]
 
     }
 
@@ -20,6 +21,7 @@ const typeDefs = `
     type Query {
         stocks: Stock
         users: User
+        user(id: ID!): User
     }
 
  

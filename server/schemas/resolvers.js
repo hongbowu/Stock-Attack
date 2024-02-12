@@ -7,17 +7,23 @@ const resolvers = {
 
       stocks: async () => {
         return await Stock 
-          .find();
-      },
+          .find({});
+
+      },   
 
       users: async () => {
-        return User
-          .find();
+        return await User
+          .find({})
+          .populate('stocks');
+      },
+
+      user: async (parent, { id }) => {
+        return await User 
+          .findOne({_id: id })
+          .populate('stocks');
       }
 
   },
-
-
 
 
 
