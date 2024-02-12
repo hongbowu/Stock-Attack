@@ -10,4 +10,7 @@ async function fetchStockData() {
     const currentPriceResponse = await fetch(`https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/${getCurrentDate()}/${getCurrentDate()}?apiKey=${process.env.API_KEY}`);
     const currentPriceData = await currentPriceResponse.json();
 
-   
+    // Fetch ticker symbol and company name
+    const infoResponse = await fetch(`https://api.polygon.io/v1/meta/symbols/AAPL/company?apiKey=${process.env.API_KEY}`);
+    const infoData = await infoResponse.json();
+
