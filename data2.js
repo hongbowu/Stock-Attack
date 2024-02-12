@@ -14,6 +14,11 @@ async function fetchStockData() {
     const infoResponse = await fetch(`https://api.polygon.io/v1/meta/symbols/AAPL/company?apiKey=${process.env.API_KEY}`);
     const infoData = await infoResponse.json();
 
+    // Fetch additional data from Finnhub API
+    const finnhubResponse = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${apiKey}`);
+    const finnhubData = await finnhubResponse.json();
+
+
     const prevClosePrice = prevCloseData.results && prevCloseData.results.length > 0 ? prevCloseData.results[0].c : null;
     const currentPrice = currentPriceData.results && currentPriceData.results.length > 0 ? currentPriceData.results[0].c : null;
     const symbol = infoData.symbol || null;
@@ -46,7 +51,6 @@ async function fetchStockData() {
 
    // Function to handle the stock data
    function handleStockData(data) {
-    // You can implement your handling logic here, for example:
     console.log('Symbol:', data.symbol);
     console.log('Company Name:', data.companyName);
     console.log('Previous day\'s close price:', data.prevClosePrice);
