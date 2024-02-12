@@ -15,12 +15,12 @@ export const QUERY_ALL_USERS = gql`
     }
 `;
 
-// export const QUERY_ALL_STOCKS = gql`
-//     query stocks {
-//         stock{
-//             _id
-//             ticker
-//             name
-//         }
-//     }
-// `;
+export const QUERY_ALL_STOCKS = gql`
+    query stocks {
+        stock{
+            _id
+            ticker
+            name
+        }
+    }
+`;
