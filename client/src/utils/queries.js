@@ -26,7 +26,7 @@ export const QUERY_ALL_STOCKS = gql`
 `;
 
 export const QUERY_SINGLE_USERS = gql`
-    query getUser($userId: ID) {
+    query getUser($userId: ID!) {
         user(_id: $userId){
             _id
             name
@@ -41,7 +41,7 @@ export const QUERY_SINGLE_USERS = gql`
 `;
 
 export const QUERY_SINGLE_STOCKS = gql`
-    query getStock($stockId: ID) {
+    query getStock($stockId: ID!) {
         stock(_id: $stockId) {
             _id
             ticker
