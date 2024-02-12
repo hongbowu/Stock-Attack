@@ -28,9 +28,13 @@ const resolvers = {
   },
 
   Mutation: {
-    addStock: async (parent, { ticker }) => {
-      return Stock.create({ ticker });
-    }
+    addStock: async (parent, { ticker, name }) => {
+      return Stock.create({ ticker, name });
+    },
+
+    deleteStock: async (parent, { ticker }) => {
+      return Stock.findOneAndDelete({ ticker: ticker });
+    },
 
 
   }

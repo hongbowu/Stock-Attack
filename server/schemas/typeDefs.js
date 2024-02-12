@@ -29,7 +29,8 @@ const typeDefs = `
 
    type Mutation {
 
-    addStock(ticker: String!): Stock
+    addStock(ticker: String! name: String!): Stock
+    deleteStock(ticker: String!): Stock
    }
  
 
