@@ -19,4 +19,18 @@ async function fetchStockData() {
     const symbol = infoData.symbol || null;
     const companyName = infoData.name || null;
 
-    
+    const stockData = {
+        symbol,
+        companyName,
+        prevClosePrice,
+        currentPrice
+      };
+  
+      // Assuming you have a function to handle the stock data, you can call it here
+      handleStockData(stockData);
+    } catch (error) {
+      console.error('Error fetching stock data:', error);
+    }
+  }
+  
+  // Function to get current date in the format YYYY-MM-DD
