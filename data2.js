@@ -22,6 +22,7 @@ async function fetchStockData() {
    
     const symbol = infoData.symbol || null;
     const companyName = infoData.name || null;
+    const currentPrice = finnhubData.c || null;
 
     const stockData = {
         symbol,
@@ -37,15 +38,7 @@ async function fetchStockData() {
   }
   
   // Function to get current date in the format YYYY-MM-DD
-  function getCurrentDate() {
-    const now = new Date();
-    const year = now.getFullYear();
-    let month = now.getMonth() + 1;
-    month = month < 10 ? '0' + month : month;
-    let day = now.getDate();
-    day = day < 10 ? '0' + day : day;
-    return `${year}-${month}-${day}`;
-  }
+
   
 
    // Function to handle the stock data
