@@ -2,13 +2,15 @@ const Nav = () => {
     return (
     <nav>
         {/* logo or home link */}
-        <Link to="/">
+        {/* <Link to="/">
           {/* logo? */}
         Stock Attack
-        </Link>
+        {/* </Link> */} */}
         {/* navigation links */}
-        <Link to="/investing">Investing</Link>
-        <Link to="/about">Account</Link>
+        {/* <Link to="/investing">Investing</Link> */}
+        {/* <Link to="/about">Account</Link> */}
     </nav>
     );
 };
+
+export default Nav;
