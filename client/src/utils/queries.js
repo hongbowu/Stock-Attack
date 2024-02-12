@@ -24,3 +24,18 @@ export const QUERY_ALL_STOCKS = gql`
         }
     }
 `;
+
+export const QUERY_SINGLE_USERS = gql`
+    query getUser($users: _id) {
+        user(_id: ID){
+            _id
+            name
+            email
+            stocks{
+                _id
+                ticker
+                name
+            }
+        }
+    }
+`;
