@@ -8,7 +8,7 @@ const typeDefs = `
 
     }
 
-    
+
     type Stock {
         _id: ID
         ticker: String
@@ -21,8 +21,8 @@ const typeDefs = `
 
 
     type Query {
-        stocks: Stock
-        users: User
+        stocks: [Stock]
+        users: [User]
         user(id: ID!): User
     }
 
