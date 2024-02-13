@@ -16,7 +16,10 @@ const typeDefs = `
 
     }
 
-
+    type Auth {
+        token: ID!
+        user: User
+    }
 
 
 
@@ -31,7 +34,9 @@ const typeDefs = `
 
     addStock(ticker: String! name: String!): Stock
     deleteStock(ticker: String!): Stock
-    addUser(name: String! email: String!): User
+
+    addUser(name: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     
    }
  
