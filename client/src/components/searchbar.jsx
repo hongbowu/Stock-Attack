@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import fetchStockData from '../../../data2';
-
+import { TextField } from '@mui/material';
+import fetchStockData from '../../../server/utils/stockapi';
 
 
 function SearchBar({ fetchStockData }) {
@@ -10,7 +10,8 @@ function SearchBar({ fetchStockData }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Call fetchStockData function with the symbol input
-    fetchStockData(symbol);
+    const result = fetchStockData(symbol);
+    console.log(result)
   };
 
   return (
@@ -24,6 +25,14 @@ function SearchBar({ fetchStockData }) {
           required
         />
       </label>
+      <TextField
+                  required
+                  fullWidth
+                  id="outlined-basic" 
+                  label="Enter Stock Ticker Here" 
+                  variant="outlined" 
+                  onChange={(event) => setSymbol(event.target.value)}
+                />
       <button type="submit">Search</button>
     </form>
   );
