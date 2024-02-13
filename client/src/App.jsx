@@ -8,8 +8,8 @@ import Footer from './components/footer';
 function App() {
   // return <Homepage />;
   // return <Dashboard />;
-  // return <Login />;
-  return <Signup />;
+  return <Login />;
+  // return <Signup />;
 
 }
 

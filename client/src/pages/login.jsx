@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import backgroundImage from '../images/login-background.png';
+import logo from '../assets/sa-logo-black.svg';
 
 const Login = () => {
   const handleSubmit = (event) => {
@@ -55,9 +56,10 @@ const Login = () => {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
-          </Avatar>
+          </Avatar> */}
+          <img src={logo} alt="logo" />
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
