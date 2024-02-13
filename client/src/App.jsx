@@ -15,7 +15,7 @@ const client = new ApolloClient({
   cache: InMemoryCache(),
 });
 
-  function App() {
+function App() {
   // return <Homepage />;
   // return <Dashboard />;
   // return <Login />;
