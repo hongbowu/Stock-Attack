@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/sa-logo.svg';
+import logo from '../assets/sa-logo-white.svg';
 // import { Link } from 'react-router-dom';
 
 const Homepage = () => {
