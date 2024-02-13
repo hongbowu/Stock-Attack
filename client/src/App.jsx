@@ -1,3 +1,4 @@
+
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Outlet } from "react-router-dom";
 import Header from "./components/header";
@@ -8,6 +9,7 @@ const client = new ApolloClient({
   uri: "/graphql",
   cache: new InMemoryCache(),
 });
+
 
 function App() {
   // return <Homepage />;
