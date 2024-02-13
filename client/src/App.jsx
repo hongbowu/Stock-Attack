@@ -5,10 +5,10 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 
 function App() {
-  return <Homepage />;
+  // return <Homepage />;
   // return <Dashboard />;
   // return <Login />;
-  // return <Signup />;
+  return <Signup />;
 
 }
 
