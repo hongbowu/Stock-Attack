@@ -6,7 +6,9 @@
 // save the import for advance
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Outlet } from 'react-router-dom';
-
+import Header from './components/header';
+import Footer from './components/footer';
+import Nav from './components/nav';
 
 function App() {
   // return <Homepage />;
