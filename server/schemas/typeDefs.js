@@ -26,6 +26,14 @@ const typeDefs = `
         user(id: ID!): User
     }
 
+
+   type Mutation {
+
+    addStock(ticker: String! name: String!): Stock
+    deleteStock(ticker: String!): Stock
+    addUser(name: String! email: String!): User
+    
+   }
  
 
 `;

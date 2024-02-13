@@ -8,6 +8,7 @@ import Dashboard from './pages/dashboard';
 import Homepage from './pages/homepage';
 import Login from './pages/login';
 import Signup from './pages/signup';
+import Search from './pages/search';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/profiles/:profileId',
         element: <Dashboard />
+      },
+      {
+        path: '/search',
+        element: <Search />
       }
     ]
   }

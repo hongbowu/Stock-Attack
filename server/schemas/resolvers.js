@@ -18,7 +18,6 @@ const resolvers = {
       },   
 
 
-
       user: async (parent, { id }) => {
         return await User 
           .findOne({_id: id })
@@ -26,6 +25,20 @@ const resolvers = {
       }
 
   },
+
+  Mutation: {
+    addStock: async (parent, { ticker, name }) => {
+      return Stock.create({ ticker, name });
+    },
+
+    deleteStock: async (parent, { ticker }) => {
+      return Stock.findOneAndDelete({ ticker: ticker });
+    },
+
+    addUser: async (parent, { name, email }) => {
+      return User.create({ name, email });
+    }
+  }
 
 
 
