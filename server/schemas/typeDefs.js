@@ -20,6 +20,8 @@ const typeDefs = `
     type Auth {
         token: ID!
         user: User
+        
+    }
 
     type APIStock {
         symbol: String
