@@ -17,6 +17,12 @@ const typeDefs = `
     }
 
 
+    type APIStock {
+        symbol: String
+        companyName: String
+        prevClosePrice: Float
+        currentPrice: Float
+    }
 
 
 
@@ -24,6 +30,7 @@ const typeDefs = `
         stocks: [Stock]
         users: [User]
         user(id: ID!): User
+        getStockAPIData(symbol: String!): APIStock 
     }
 
 
