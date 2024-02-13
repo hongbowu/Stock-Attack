@@ -7,6 +7,14 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 function StockCard({ stock }) {
+  const handleAddToPortfolio = () => {
+    console.log(`Adding ${stock.name} to portfolio`);
+    // add update state or make an API call)
+  };
+  const handleRemoveFromPortfolio = () => {
+    console.log(`Removing ${stock.name} from portfolio`);
+    // add update state or make an API call)
+  };
   return (
     <Card sx={{ maxWidth: 345, margin: '1rem' }}>
       <CardContent>
@@ -18,17 +26,13 @@ function StockCard({ stock }) {
         </Typography>
         <IconButton
           aria-label="add to portfolio"
-          onClick={() => {
-            // handles the add to portfolio
-          }}
+          onClick={handleAddToPortfolio}
         >
           <AddIcon />
         </IconButton>
         <IconButton
           aria-label="remove from portfolio"
-          onClick={() => {
-            // handles the remove from portfolio
-          }}
+          onClick={handleRemoveFromPortfolio}
         >
           <RemoveIcon />
         </IconButton>
