@@ -26,6 +26,7 @@ const resolvers = {
       },
 
       getStockAPIData: async(parent, {symbol}) => {
+        console.log("The symbol", symbol)
         return await fetchStockData(symbol)
       }
 
