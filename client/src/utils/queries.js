@@ -40,13 +40,13 @@ export const QUERY_SINGLE_USERS = gql`
     }
 `;
 
-export const QUERY_SINGLE_STOCKS = gql`
-    query getStock($stockId: ID!) {
-        stock(_id: $stockId) {
-            _id
-            ticker
-            name
-        }
+export const QUERY_SINGLE_STOCK = gql`
+query GetStockAPIData($symbol: String!) {
+    getStockAPIData(symbol: $symbol) {
+      companyName
+      currentPrice
+      prevClosePrice
+      symbol
     }
-        
+  }   
 `;

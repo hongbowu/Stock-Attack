@@ -1,5 +1,6 @@
 const { Stock, User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const fetchStockData = require('../utils/stockapi');
 
 
 const resolvers = {
@@ -23,6 +24,11 @@ const resolvers = {
         return await User 
           .findOne({_id: id })
           .populate('stocks');
+      },
+
+      getStockAPIData: async(parent, {symbol}) => {
+        console.log("The symbol", symbol)
+        return await fetchStockData(symbol)
       }
 
   },
