@@ -38,8 +38,6 @@ async function fetchStockData() {
   }
   
 
-
-  
    // Function to handle the stock data
    function handleStockData(data) {
     console.log('Symbol:', data.symbol);
