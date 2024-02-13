@@ -21,8 +21,7 @@ async function fetchPreviousClosePrice() {
 
 
 function saveStockPrice(price) {
-    // You can implement your saving logic here, for example:
-    // Saving to localStorage
+  
    
     console.log('Previous day\'s close price:', price);
   }
