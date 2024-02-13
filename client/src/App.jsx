@@ -1,4 +1,3 @@
-
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Outlet } from "react-router-dom";
 import Header from "./components/header";
@@ -13,7 +12,7 @@ const client = new ApolloClient({
 
 function App() {
   // return <Homepage />;
-  // return <Dashboard />;
+  // return <Profile />;
   // return <Login />;
   // return <Signup />;
   return (

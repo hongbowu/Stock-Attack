@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom/dist'
 // import './index.css'
 //commented out because it affects the signup.jsx css
 
-import Dashboard from './pages/dashboard';
+import Profile from './pages/profile';
 import Homepage from './pages/homepage';
 import Login from './pages/login';
 import Signup from './pages/signup';
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
         element: <Signup />
       },
       {
-        path: '/profiles/:profileId',
-        element: <Dashboard />
+        path: '/profile', //:profileId',
+        element: <Profile/>
       },
       {
         path: '/search',

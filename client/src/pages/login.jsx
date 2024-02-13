@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -9,20 +8,25 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import backgroundImage from '../images/login-background.png';
 import logo from '../assets/sa-logo-black.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      
+      if (data.get('email') === 'example@example.com' && data.get('password') === '12345') {
+        console.log('Login successful');
+        navigate('/profile');
+      } else {
+        console.log('Login failed');
+      }
+    };
   return (
     <Grid
       container
@@ -56,9 +60,6 @@ const Login = () => {
             alignItems: 'center',
           }}
         >
-          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar> */}
           <img src={logo} alt="logo" />
           <Typography component="h1" variant="h5">
             Sign in
