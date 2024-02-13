@@ -5,16 +5,16 @@ require('dotenv').config()
 async function fetchStockData() {
   try {
     // Fetch previous day's close price and current stock price
-    const prevCloseResponse = await fetch(`https://api.polygon.io/v2/aggs/ticker/AAPL/prev?adjusted=true&apiKey=${process.env.API_KEY}`);
+    const prevCloseResponse = await fetch(`https://api.polygon.io/v2/aggs/ticker/${symbol}/prev?adjusted=true&apiKey=${process.env.API_KEY}`);
     const prevCloseData = await prevCloseResponse.json();
    
 
     // Fetch ticker symbol and company name
-    const infoResponse = await fetch(`https://api.polygon.io/v1/meta/symbols/AAPL/company?apiKey=${process.env.API_KEY}`);
+    const infoResponse = await fetch(`https://api.polygon.io/v1/meta/symbols/${symbol}/company?apiKey=${process.env.API_KEY}`);
     const infoData = await infoResponse.json();
 
     // Fetch additional data from Finnhub API
-    const finnhubResponse = await fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${process.env.API_KEY2}`);
+    const finnhubResponse = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${process.env.API_KEY2}`);
     const finnhubData = await finnhubResponse.json();
 
 
@@ -48,3 +48,5 @@ async function fetchStockData() {
   
   // Call the function to fetch and handle stock data
   fetchStockData();
+
+  module.exports = fetchStockData;
