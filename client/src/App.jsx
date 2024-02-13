@@ -15,12 +15,19 @@ const client = new ApolloClient({
   cache: InMemoryCache(),
 });
 
-function App() {
+  function App() {
   // return <Homepage />;
   // return <Dashboard />;
   // return <Login />;
   // return <Signup />;
-<ApolloProvider
+  return (
+  <ApolloProvider client={client}>
+    <Header />
+      <Nav />
+      <Outlet />
+    <Footer />
+  <ApolloProvider />
+  );
 }
 
 export default App;
