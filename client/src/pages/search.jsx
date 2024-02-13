@@ -17,7 +17,7 @@ import SearchBar from '../components/searchbar';
 const Search = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
+        // const data = new FormData(event.currentTarget);
     };
     return (
         <Container component="main" maxWidth="xs" sx={{
@@ -40,29 +40,7 @@ const Search = () => {
             <Typography component="h1" variant="h3">
               Search
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-              <Grid container spacing={2}>
-                {/* Form Fields */}
-                <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="outlined-basic" 
-                  label="Stock Ticker" 
-                  variant="outlined" 
-                />
-                <SearchBar />
-                </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Search Stock
-              </Button>
-            </Box>
+            <SearchBar />
             <Typography
               variant="body2"
               color="text.secondary"
