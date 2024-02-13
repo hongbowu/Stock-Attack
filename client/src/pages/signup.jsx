@@ -13,6 +13,16 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 const Signup = () => {
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          const data = new FormData(event.currentTarget);
+          console.log({
+            firstName: data.get('firstName'),
+            lastName: data.get('lastName'),
+            email: data.get('email'),
+            password: data.get('password'),
+          });
+        };
     return (
         <div>
             <h1>Signup</h1>
