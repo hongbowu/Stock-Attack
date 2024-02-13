@@ -7,8 +7,8 @@ import Signup from './pages/signup';
 function App() {
   // return <Homepage />;
   // return <Dashboard />;
-  return <Login />;
-  // return <Signup />;
+  // return <Login />;
+  return <Signup />;
 
 }
 

@@ -114,7 +114,7 @@ const Login = () => {
             <Box mt={5} align="center">
               <Typography variant="body2" color="text.secondary">
                 {'Copyright © '}
-                Your Website {new Date().getFullYear()}
+                Stock Attack {new Date().getFullYear()}
                 {'.'}
               </Typography>
             </Box>
