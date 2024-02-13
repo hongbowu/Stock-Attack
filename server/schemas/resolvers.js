@@ -35,7 +35,9 @@ const resolvers = {
       return Stock.findOneAndDelete({ ticker: ticker });
     },
 
-
+    addUser: async (parent, { name, email }) => {
+      return User.create({ name, email });
+    }
   }
 
 
