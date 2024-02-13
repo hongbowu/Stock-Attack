@@ -1,4 +1,4 @@
-// REQUIREMENTS/ DEPENDENCIES_________________________
+// REQUIREMENTS/ DEPENDENCIES______________________________________
 const express = require('express');
   const { ApolloServer } = require('@apollo/server');
   const { expressMiddleware } = require('@apollo/server/express4');
@@ -6,12 +6,12 @@ const express = require('express');
   const { authMiddleware } = require('./utils/auth');
 
 
-// SCHEMAS AND CONNECTIONS
+// SCHEMAS AND CONNECTIONS________________________________________
   const { typeDefs, resolvers } = require('./schemas');
   const db = require('./config/connection');
 
 
-// APP/PORT/SERVER PAS________________________________________  
+// APP/PORT/SERVER PAS____________________________________________  
   const PORT = process.env.PORT || 3001;
   const app = express();
   const server = new ApolloServer({
@@ -20,7 +20,7 @@ const express = require('express');
   });
 
   
-// FUNCTION TO START APOLLO SERVER WIHIN EXPRESSJS _________________  
+// FUNCTION TO START APOLLO SERVER WIHIN EXPRESSJS _______________  
   const startApolloServer = async () => {
     await server.start();
 
@@ -48,6 +48,6 @@ const express = require('express');
   };
 
 
-// START SERVER _________________________  
+// START SERVER __________________________________________________  
   startApolloServer();
   
