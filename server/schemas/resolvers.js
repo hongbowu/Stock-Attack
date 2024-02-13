@@ -1,4 +1,5 @@
 const { Stock, User } = require('../models');
+const fetchStockData = require('../utils/stockapi');
 
 
 const resolvers = {
@@ -22,6 +23,10 @@ const resolvers = {
         return await User 
           .findOne({_id: id })
           .populate('stocks');
+      },
+
+      getStockAPIData: async(parent, {symbol}) => {
+        return await fetchStockData(symbol)
       }
 
   },

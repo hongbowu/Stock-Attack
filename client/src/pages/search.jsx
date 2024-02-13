@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import logo from '../assets/sa-logo-black.svg';
+import SearchBar from '../components/searchbar';
 
 const Search = () => {
     const handleSubmit = (event) => {
@@ -50,6 +51,7 @@ const Search = () => {
                   label="Stock Ticker" 
                   variant="outlined" 
                 />
+                <SearchBar />
                 </Grid>
               </Grid>
               <Button
