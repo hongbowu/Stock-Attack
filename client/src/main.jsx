@@ -10,7 +10,12 @@ import Homepage from './pages/homepage';
 import Login from './pages/login';
 import Signup from './pages/signup';
 
-
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  }
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
