@@ -12,7 +12,7 @@ const client = new ApolloClient({
 
 function App() {
   // return <Homepage />;
-  // return <Dashboard />;
+  // return <Profile />;
   // return <Login />;
   // return <Signup />;
   return (
