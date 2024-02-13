@@ -4,6 +4,7 @@ const typeDefs = `
         _id: ID
         name: String
         email: String
+        password: String
         stocks: [Stock]
 
     }
@@ -16,6 +17,11 @@ const typeDefs = `
 
     }
 
+    type Auth {
+        token: ID!
+        user: User
+        
+    }
 
     type APIStock {
         symbol: String
@@ -38,7 +44,9 @@ const typeDefs = `
 
     addStock(ticker: String! name: String!): Stock
     deleteStock(ticker: String!): Stock
-    addUser(name: String! email: String!): User
+
+    addUser(name: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     
    }
  

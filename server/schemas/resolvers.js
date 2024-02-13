@@ -1,4 +1,5 @@
 const { Stock, User } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/auth');
 const fetchStockData = require('../utils/stockapi');
 
 
@@ -41,9 +42,37 @@ const resolvers = {
       return Stock.findOneAndDelete({ ticker: ticker });
     },
 
-    addUser: async (parent, { name, email }) => {
-      return User.create({ name, email });
+    //JWT
+    addUser: async (parent, { name, email, password }) => {
+      const user = await User.create({ name, email, password });
+      const token = signToken(user);
+
+      return { token, profile }
+      
+    },
+
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw AuthenticationError
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError
+      }
+
+      const token = signToken(user);
+      return { token, user };
+
+
     }
+
+
+
+
   }
 
 
