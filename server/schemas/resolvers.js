@@ -18,7 +18,6 @@ const resolvers = {
       },   
 
 
-
       user: async (parent, { id }) => {
         return await User 
           .findOne({_id: id })
