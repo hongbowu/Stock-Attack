@@ -1,4 +1,6 @@
-#root {
+/* all css commented out because it affects the layout of the page for the login.jsx */
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -52,4 +54,4 @@ footer {
 
 .read-the-docs {
   color: #888;
-}
+} */

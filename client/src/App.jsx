@@ -6,14 +6,11 @@ import Signup from './pages/signup';
 import Footer from './components/footer';
 
 function App() {
-  return (
-    <div>
-      <div>
-        <Homepage />
-      </div>
-      <Footer />
-    </div>
-  );
-};
+  // return <Homepage />;
+  // return <Dashboard />;
+  // return <Login />;
+  return <Signup />;
+
+}
 
 export default App
