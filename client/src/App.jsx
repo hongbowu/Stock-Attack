@@ -26,7 +26,7 @@ function App() {
       <Nav />
       <Outlet />
     <Footer />
-  <ApolloProvider />
+  </ApolloProvider>
   );
 }
 
