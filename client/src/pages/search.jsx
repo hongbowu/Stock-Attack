@@ -49,7 +49,7 @@ const Search = () => {
                 alignItems: 'center',
               }}
             >
-              <img src={logo} alt="logo" />
+              {/* <img src={logo} alt="logo" /> */}
               <Typography component="h1" variant="h3">
                 Search
               </Typography>
