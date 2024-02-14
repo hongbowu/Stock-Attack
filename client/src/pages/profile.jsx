@@ -25,6 +25,9 @@ const Profile = () => {
   const { loading, data } = useQuery(QUERY_ALL_STOCKS);
   const [filteredStocks, setFilteredStocks] = useState(dummyStocks); // dummy data for now
 
+  const { stockData } = useStockContext();
+  console.log('stockData', stockData);
+
   useEffect(() => {
     if (data) {
       setFilteredStocks(data.stocks);
