@@ -1,9 +1,6 @@
 
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
+import { Box, Button, Grid, TextField } from '@mui/material';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_SINGLE_STOCK } from '../utils/queries';
 import { useStockContext } from '../utils/stockContext';

@@ -1,6 +1,5 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box, Typography } from '@mui/material';
 
 // dummy data we will will replace this with data from backend
 const stocks = [

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography, Container } from '@mui/material';
-import logo from '../assets/sa-logo-white-sm.svg';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Typography, Container } from '@mui/material';
+// import logo from '../assets/sa-logo-white-sm.svg';
 
 const darkTheme = createTheme({
   palette: {

@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../assets/sa-logo-white.svg';
 import { Link } from 'react-router-dom';
-import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
 
 const darkTheme = createTheme({
   palette: {
