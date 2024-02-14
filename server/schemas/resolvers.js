@@ -58,7 +58,20 @@ const resolvers = {
         let stock = await Stock.findOne({ ticker });
         // if yes - update the user by adding more shares to that stock
         //if no put a new portfolio stock in the stocks array
-        
+        if (!stock) {
+          stock = await Stock.create({ ticker, name });
+        }
+
+        // Check if the stock is already in the user's portfolio
+        let portfolioStock = user.stocks.find(stock => stock.stock.equals(stock._id));
+
+        if (portfolioStock) {
+          // If the stock exists in the portfolio, update the quantity
+          portfolioStock.quantity += quantity;
+        } else {
+          // If the stock doesn't exist in the portfolio, add it
+          user.stocks.push({ stock: stock._id, quantity });
+        }
         // make an object with stockId property and a quanity
         const newPortfolioStock = {
           stock: stockId,
