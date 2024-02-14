@@ -74,6 +74,10 @@ const resolvers = {
         //save user object
         user = await user.save();
 
+        //populate stock field 
+        return await user.populate('stocks.stock')
+      } catch (error) {
+        console.error('Error adding stock to portfolio:', error);
         // make an object with stockId property and a quanity
         const newPortfolioStock = {
           stock: stockId,
