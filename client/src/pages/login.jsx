@@ -24,21 +24,29 @@ import {
 import backgroundImage from '../images/login-background.png';
 import logo from '../assets/sa-logo-black.svg';
 import { useNavigate } from 'react-router-dom';
+// import userSeeds from '../../server/seeder/userSeeds.json';
 
 const Login = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      
-      if (data.get('email') === 'example@example.com' && data.get('password') === '12345') {
-        console.log('Login successful');
-        navigate('/profile');
-      } else {
-        console.log('Login failed');
-      }
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const email = data.get('email');
+    const password = data.get('password');
+
+    const user = userSeeds.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (user) {
+      console.log('Login successful');
+      navigate('/profile');
+    } else {
+      console.log('Login failed');
+    }
+  };
+
   return (
     <Grid
       container

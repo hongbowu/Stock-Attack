@@ -2,14 +2,14 @@
   {
     "name": "John Doe",
     "email": "johndoe@gmail.com",
-    "password": "password123"
+    "password": "password01"
     
 
   },
   {
     "name": "Jane Doe",
     "email": "janedoe@yahoo.com",
-    "password": "password123"
+    "password": "password02"
   }
 
 ]

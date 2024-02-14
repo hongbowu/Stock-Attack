@@ -42,15 +42,6 @@ async function fetchStockData(ticker) {
   }
   
 
-   // Function to handle the stock data
-//    function handleStockData(data) {
-//     console.log('Symbol:', data.symbol);
-//     console.log('Company Name:', data.companyName);
-//     console.log('Previous day\'s close price:', data.prevClosePrice);
-//     console.log('Current stock price:', data.currentPrice);
-//   }
-  
-  // Call the function to fetch and handle stock data
-//   fetchStockData();
+
 
   module.exports = fetchStockData;

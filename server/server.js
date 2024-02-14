@@ -1,18 +1,18 @@
-// REQUIREMENTS/ DEPENDENCIES_________________________
-require('dotenv').config({ path: "../.env"})
-
-const express = require('express');
+// REQUIREMENTS/ DEPENDENCIES______________________________________
+  require('dotenv').config({ path: "../.env"})
+  const express = require('express');
   const { ApolloServer } = require('@apollo/server');
   const { expressMiddleware } = require('@apollo/server/express4');
   const path = require('path');
+  const { authMiddleware } = require('./utils/auth');
 
 
-// SCHEMAS AND CONNECTIONS
+// SCHEMAS AND CONNECTIONS________________________________________
   const { typeDefs, resolvers } = require('./schemas');
   const db = require('./config/connection');
 
 
-// APP/PORT/SERVER PAS________________________________________  
+// APP/PORT/SERVER PAS____________________________________________  
   const PORT = process.env.PORT || 3001;
   const app = express();
   const server = new ApolloServer({
@@ -21,7 +21,7 @@ const express = require('express');
   });
 
   
-// FUNCTION TO START APOLLO SERVER WIHIN EXPRESSJS _________________  
+// FUNCTION TO START APOLLO SERVER WIHIN EXPRESSJS _______________  
   const startApolloServer = async () => {
     await server.start();
 
@@ -36,7 +36,9 @@ const express = require('express');
       });
     }
 
-    app.use('/graphql', expressMiddleware(server));
+    app.use('/graphql', expressMiddleware(server, {
+      context: authMiddleware
+    }));
 
     db.once('open', () => {
       app.listen(PORT, () => {
@@ -47,6 +49,6 @@ const express = require('express');
   };
 
 
-// START SERVER _________________________  
+// START SERVER __________________________________________________  
   startApolloServer();
   
