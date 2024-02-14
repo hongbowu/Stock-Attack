@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Paper, Box, Grid, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import backgroundImage from '../images/login-background.png';
-import logo from '../assets/sa-logo-black.svg';
+import logo from '../assets/sa-logo-white-sm.svg';
 import { useNavigate } from 'react-router-dom';
 // import userSeeds from '../../server/seeder/userSeeds.json';
 
