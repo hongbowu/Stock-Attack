@@ -12,3 +12,11 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_STOCK = gql`
+  mutation addStock($ticker: String! name: String!) {
+    addStock(ticker: $ticker, name: $name) {
+        ticker
+        name
+    }
+  }
+`;
