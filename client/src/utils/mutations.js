@@ -32,3 +32,13 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const REMOVE_STOCK = gql`
+  mutation removeStock($ticker: String!) {
+    removeStock(ticker: $ticker) {
+        _id
+        ticker
+        name
+    }
+  }
+`;
