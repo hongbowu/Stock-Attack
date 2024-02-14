@@ -51,6 +51,12 @@ const resolvers = {
           stock = await Stock.create({ ticker, name })
           stockId = stock._id
         }
+
+        // TO DO: get the user object 
+        let user = await User.findById(context.user._id);
+        // is the stock in the users stocks array?
+        // if yes - update the user by adding more shares to that stock
+        //if no put a new portfolio stock in the stocks array
         
         // make an object with stockId property and a quanity
         const newPortfolioStock = {
@@ -59,15 +65,17 @@ const resolvers = {
         }
         console.log(newPortfolioStock)
         
-        // add the object to logged in user's list of stocks
-        const user = await User.findByIdAndUpdate(context.user._id, 
-          {
-          $push: {
-            stocks: newPortfolioStock
-                  },
-          }, {new: true}
 
-        );
+
+        // add the object to logged in user's list of stocks
+        // const user = await User.findByIdAndUpdate(context.user._id, 
+        //   {
+        //   $push: {
+        //     stocks: newPortfolioStock
+        //           },
+        //   }, {new: true}
+
+        // );
   
         return await user.populate({ path: "stocks", populate: "stock"});
       }

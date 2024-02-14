@@ -4,12 +4,15 @@ import SearchBar from '../components/searchbar';
 import StockInfo from '../components/stock-info';
 import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ADD_STOCK_TO_USER } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
 });
+
 
 
 const Search = () => {
@@ -24,7 +27,20 @@ const Search = () => {
     //     event.preventDefault();
     //     // const data = new FormData(event.currentTarget);
     // };
-
+    const [addStockToUser, { data: newStockData}] = useMutation(ADD_STOCK_TO_USER);
+  
+    
+    const clickHandler = async (ticker, name, quantity) => {
+      console.log("Adding a stock")
+    try {
+      await addStockToUser({ variables: { ticker, name, quantity } });
+      console.log(newStockData)
+      // Optionally, you can handle success here
+    } catch (error) {
+      // Handle errors if needed
+      console.error('Error adding stock to user:', error);
+    }
+  }
         // dummy function to simulate adding to portfolio
         const handleAddToPortfolio = (stock, quantity) => {
           console.log(`Adding ${quantity} of ${stock.symbol} to portfolio`);
@@ -54,7 +70,7 @@ const Search = () => {
               Search
             </Typography>
             <SearchBar /> {/* onSubmit={handleSubmit} */}
-            <StockInfo stockData={dummyStockData} onAddToPortfolio={handleAddToPortfolio} />
+            <StockInfo stockData={dummyStockData} onAddToPortfolio={clickHandler} />
             <Typography
               variant="body2"
               color="text.secondary"

@@ -34,7 +34,7 @@ const StockInfo = ({ stockData, onAddToPortfolio }) => {
             inputProps={{ min: 0 }}
             label="Quantity"
           />
-          <Button variant="contained" color="primary" onClick={handleAddClick}>
+          <Button variant="contained" color="primary" onClick={() => onAddToPortfolio(stockData.symbol, stockData.companyName, quantity)}>
             Add to Portfolio
           </Button>
         </Box>

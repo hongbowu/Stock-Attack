@@ -10,21 +10,19 @@ import { useStockContext } from '../utils/stockContext';
 
 
 
+
 function SearchBar() {
   const [symbol, setSymbol] = useState('');
-
   const { updateStockData } = useStockContext();
-
   const [getAPIStockData, {loading, error, data}] = useLazyQuery(QUERY_SINGLE_STOCK)
 
-  console.log(data);
 
-  const handleSubmit = (event) => {
 
+  const handleSubmit = async (event) => {
     event.preventDefault();
     getAPIStockData({ variables: { symbol: symbol } });
     // Call fetchStockData function with the symbol input
-
+    
   };
 
   React.useEffect(() => {
