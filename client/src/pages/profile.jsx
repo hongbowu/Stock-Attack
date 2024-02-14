@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Container, Button, Grid, Box, Paper, CssBaseline } from '@mui/material';
-import StockList from '../components/stock-list';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Typography, Container, Button, Grid, Paper, CssBaseline } from '@mui/material';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_STOCKS } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
 import StockCard from '../components/stock-card';
 import { useStockContext } from '../utils/stockContext';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+// import StockList from '../components/stock-list';
 
 const darkTheme = createTheme({
   palette: {

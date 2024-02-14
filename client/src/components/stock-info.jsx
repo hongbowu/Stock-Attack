@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
+import { Box, Card, CardContent, Typography, Button, TextField } from '@mui/material';
 
 const StockInfo = ({ stockData, onAddToPortfolio }) => {
   const [quantity, setQuantity] = useState(0);
