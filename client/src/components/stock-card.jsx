@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Typography, IconButton } from '@mui/material';
-import { AddIcon, RemoveIcon } from '@mui/icons-material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 function StockCard({ stock }) {
   const handleAddToPortfolio = () => {
