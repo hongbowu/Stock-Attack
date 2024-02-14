@@ -1,4 +1,6 @@
 import React from 'react';
+import logo from '../assets/sa-logo-black.svg';
+import SearchBar from '../components/searchbar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -6,8 +8,6 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import logo from '../assets/sa-logo-black.svg';
-import SearchBar from '../components/searchbar';
 
 const Search = () => {
     const handleSubmit = (event) => {
