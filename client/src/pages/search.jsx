@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from '../assets/sa-logo-white-sm.svg';
 import SearchBar from '../components/searchbar';
-
 import StockInfo from '../components/stock-info';
+import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 
 const Search = () => {
@@ -25,7 +32,8 @@ const Search = () => {
       };
 
     return (
-
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
         <Container component="main" maxWidth="xs" sx={{
           display: 'flex', 
           flexDirection: 'column', 
@@ -34,7 +42,6 @@ const Search = () => {
           height: '100vh',
           marginTop: '-64px',
         }}>
-          <CssBaseline />
           <Box
             sx={{
               display: 'flex',
@@ -71,10 +78,11 @@ const Search = () => {
                 {new Date().getFullYear()}
                 {'.'}
               </Typography>
-            </Box>
-          </Container>
-        </ThemeProvider>
-      );    
+            </Typography>
+          </Box>
+        </Container>
+    </ThemeProvider>
+  );    
 }
 
 export default Search;
