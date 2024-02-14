@@ -1,37 +1,59 @@
 import React from 'react';
 import logo from '../assets/sa-logo-white-sm.svg';
 import SearchBar from '../components/searchbar';
-import { Button, CssBaseline, TextField, Grid, Box, Typography, Container } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+import StockInfo from '../components/stock-info';
+
 
 const Search = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // const data = new FormData(event.currentTarget);
+      // dummy stock data
+      const dummyStockData = {
+        symbol: 'AAPL',
+        companyName: 'Apple Inc.',
+        prevClosePrice: 146.92,
+        currentPrice: 149.64
     };
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     // const data = new FormData(event.currentTarget);
+    // };
+
+        // dummy function to simulate adding to portfolio
+        const handleAddToPortfolio = (stock, quantity) => {
+          console.log(`Adding ${quantity} of ${stock.symbol} to portfolio`);
+          //make an API call to add the stock to the user portfolio
+      };
+
     return (
-        <ThemeProvider theme={darkTheme}>
-          <Container component="main" maxWidth="xs" sx={{
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            height: '100vh',
-            marginTop: '-64px',
-          }}>
-            <CssBaseline />
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
+
+        <Container component="main" maxWidth="xs" sx={{
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          height: '100vh',
+          marginTop: '-64px',
+        }}>
+          <CssBaseline />
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <img src={logo} alt="logo" />
+            <Typography component="h1" variant="h3">
+              Search
+            </Typography>
+            <SearchBar /> {/* onSubmit={handleSubmit} */}
+            <StockInfo stockData={dummyStockData} onAddToPortfolio={handleAddToPortfolio} />
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              align="center"
+              sx={{ mt: 5 }}
+
             >
               <img src={logo} alt="logo" />
               <Typography component="h1" variant="h3">
