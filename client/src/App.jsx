@@ -3,6 +3,8 @@ import { setContext } from '@apollo/client/link/context';
 import { Outlet } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import Nav from "./components/nav";
+import { StockProvider } from "./utils/stockContext";
 // import Nav from "./components/nav";
 
 //// -- WORKING CODE --
@@ -35,6 +37,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+//search bar
 
 function App() {
   // return <Homepage />;
@@ -42,12 +45,14 @@ function App() {
   // return <Login />;
   // return <Signup />;
   return (
+  <StockProvider>
   <ApolloProvider client={client}>
     <Header />
       {/* <Nav /> */}
       <Outlet />
     <Footer />
   </ApolloProvider>
+  </StockProvider>
   );
 }
 

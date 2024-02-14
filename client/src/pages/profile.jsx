@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ALL_STOCKS } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
 import StockCard from '../components/stock-card';
+import { useStockContext } from '../utils/stockContext';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
@@ -24,6 +25,9 @@ const Profile = () => {
   const navigate = useNavigate(); 
   const { loading, data } = useQuery(QUERY_ALL_STOCKS);
   const [filteredStocks, setFilteredStocks] = useState(dummyStocks); // dummy data for now
+
+  const { stockData } = useStockContext();
+  console.log('stockData', stockData);
 
   useEffect(() => {
     if (data) {
