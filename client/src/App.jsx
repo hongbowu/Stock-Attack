@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 import { Outlet } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Nav from "./components/nav";
+// import Nav from "./components/nav";
 
 //// -- WORKING CODE --
 // const client = new ApolloClient({
@@ -44,7 +44,7 @@ function App() {
   return (
   <ApolloProvider client={client}>
     <Header />
-      <Nav />
+      {/* <Nav /> */}
       <Outlet />
     <Footer />
   </ApolloProvider>
