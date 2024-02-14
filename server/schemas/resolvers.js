@@ -38,6 +38,39 @@ const resolvers = {
       return Stock.create({ ticker, name });
     },
 
+    addStocktoPortfolio: async (_, { ticker, name, quantity}, context) => {
+      if (context.user) {
+        // is the ticker in the database
+        let stock = await findOne({ ticker });
+        let stockId; 
+        if (stock) {
+          // yes? get it's id
+          stockId = stock._id;
+        } else {
+          // no? create it in the database and get it's id
+          stock = Stock.create({ ticker, name })
+          stockId = stock._id
+        }
+        
+        // make an object with stockId property and a quanity
+        const newPortfolioStock = {
+          stockId,
+          quantity
+        }
+        
+        // add the object to logged in user's list of stocks
+        const user = await User.findByIdAndUpdate(context.user._id, 
+          {
+          $push: {
+            stocks: newPortfolioStock
+                  },
+          }, {new: true}
+
+        );
+        return user;
+      }
+    },
+
     deleteStock: async (parent, { ticker }) => {
       return Stock.findOneAndDelete({ ticker: ticker });
     },
