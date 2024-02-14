@@ -1,45 +1,69 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import backgroundImage from '../images/login-background.png';
-import logo from '../assets/sa-logo-black.svg';
-import { useNavigate } from 'react-router-dom';
-// import userSeeds from '../../server/seeder/userSeeds.json';
+import { React, useState } from "react";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import backgroundImage from "../images/login-background.png";
+import logo from "../assets/sa-logo-black.svg";
+import { useNavigate } from "react-router-dom";
+
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const email = data.get('email');
-    const password = data.get('password');
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    const user = userSeeds.find(
-      (user) => user.email === email && user.password === password
-    );
-
-    if (user) {
-      console.log('Login successful');
-      navigate('/profile');
-    } else {
-      console.log('Login failed');
-    }
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
+
+  const navigate = useNavigate();
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      // try to login the user with the username and password in the state
+      const { data } = await login({
+        variables: { ...formState },
+      });
+      console.log(data);
+      // got the token? log the user in
+      Auth.login(data.login.token);
+
+      navigate("/profile");
+      
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
+
 
   return (
     <Grid
       container
       component="main"
-      sx={{ height: '100vh', width: '100vw', m: 0 }}
+      sx={{ height: "100vh", width: "100vw", m: 0 }}
     >
       <CssBaseline />
       <Grid
@@ -49,13 +73,13 @@ const Login = () => {
         md={7}
         sx={{
           backgroundImage: `url(${backgroundImage})`,
-          backgroundRepeat: 'no-repeat',
+          backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
-            t.palette.mode === 'light'
+            t.palette.mode === "light"
               ? t.palette.grey[50]
               : t.palette.grey[900],
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -63,9 +87,9 @@ const Login = () => {
           sx={{
             my: 8,
             mx: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <img src={logo} alt="logo" />
@@ -75,7 +99,7 @@ const Login = () => {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={handleFormSubmit} //added
             sx={{ mt: 1 }}
           >
             <TextField
@@ -87,6 +111,8 @@ const Login = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={formState.email} //added
+              onChange={handleChange} //added
             />
             <TextField
               margin="normal"
@@ -97,6 +123,8 @@ const Login = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={formState.password} //added
+              onChange={handleChange} //added
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -124,9 +152,9 @@ const Login = () => {
             </Grid>
             <Box mt={5} align="center">
               <Typography variant="body2" color="text.secondary">
-                {'Copyright © '}
+                {"Copyright © "}
                 Stock Attack {new Date().getFullYear()}
-                {'.'}
+                {"."}
               </Typography>
             </Box>
           </Box>
