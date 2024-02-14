@@ -21,7 +21,6 @@ function SearchBar() {
     event.preventDefault();
     getAPIStockData({ variables: { symbol: symbol } });
     // Call fetchStockData function with the symbol input
-
   };
 
   React.useEffect(() => {

@@ -6,6 +6,7 @@ import { QUERY_ALL_STOCKS } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
 import StockCard from '../components/stock-card';
 import { useStockContext } from '../utils/stockContext';
+import LogoutButton from '../components/logout';
 // import StockList from '../components/stock-list';
 
 const darkTheme = createTheme({
@@ -48,6 +49,7 @@ const Profile = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <LogoutButton />
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Typography variant="h2" component="h1" gutterBottom>
           My Portfolio
