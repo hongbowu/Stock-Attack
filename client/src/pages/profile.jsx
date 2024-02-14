@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+import { Typography, Container, Button, Grid, Box, Paper, CssBaseline } from '@mui/material';
 import StockList from '../components/stock-list';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_STOCKS } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
 import StockCard from '../components/stock-card';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 // placeholder for the stocks data and would be replaced with your API call
 const dummyStocks = [
@@ -39,26 +42,29 @@ const Profile = () => {
   if (loading) return <Typography>Loading...</Typography>;
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4 }}>
-      <Typography variant="h2" component="h1" gutterBottom>
-        My Portfolio
-      </Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
-        <Typography variant="h4" component="h2">
-          Total Portfolio Value: ${calculateTotalValue().toLocaleString()}
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Container maxWidth="lg" sx={{ mt: 4 }}>
+        <Typography variant="h2" component="h1" gutterBottom>
+          My Portfolio
         </Typography>
-        <Button variant="contained" onClick={handleSearch}>
-          Search Stocks
-        </Button>
-      </Box>
-      <Grid container spacing={2}>
-        {filteredStocks.map((stock, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <StockCard stock={stock} />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+          <Typography variant="h4" component="h2">
+            Total Portfolio Value: ${calculateTotalValue().toLocaleString()}
+          </Typography>
+          <Button variant="outlined" onClick={handleSearch}>
+            Search Stocks
+          </Button>
+        </Box>
+        <Grid container spacing={2}>
+          {filteredStocks.map((stock, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <StockCard stock={stock} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </ThemeProvider>
   );
 };
 
