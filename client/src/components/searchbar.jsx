@@ -6,12 +6,15 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_SINGLE_STOCK } from '../utils/queries';
-import { useStock } from '../utils/stockContext';
+import { useStockContext } from '../utils/stockContext';
 
 
 
 function SearchBar() {
   const [symbol, setSymbol] = useState('');
+
+  const { updateStockData } = useStockContext();
+
   const [getAPIStockData, {loading, error, data}] = useLazyQuery(QUERY_SINGLE_STOCK)
 
   console.log(data);

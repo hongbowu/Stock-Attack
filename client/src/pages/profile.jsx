@@ -9,6 +9,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ALL_STOCKS } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
 import StockCard from '../components/stock-card';
+import { useStockContext } from '../utils/stockContext';
 
 // placeholder for the stocks data and would be replaced with your API call
 const dummyStocks = [
@@ -21,6 +22,9 @@ const Profile = () => {
   const navigate = useNavigate(); 
   const { loading, data } = useQuery(QUERY_ALL_STOCKS);
   const [filteredStocks, setFilteredStocks] = useState(dummyStocks); // dummy data for now
+
+  const { stockData } = useStockContext();
+  console.log('stockData', stockData);
 
   useEffect(() => {
     if (data) {
