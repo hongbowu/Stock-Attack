@@ -55,9 +55,8 @@ const resolvers = {
         // TO DO: get the user object 
         let user = await User.findById(context.user._id);
         // is the stock in the users stocks array?
-        let stock = await Stock.findOne({ ticker });
-        // if yes - update the user by adding more shares to that stock
-        //if no put a new portfolio stock in the stocks array
+        stock = await Stock.findOne({ ticker });
+    
         if (!stock) {
           stock = await Stock.create({ ticker, name });
         }
@@ -72,6 +71,9 @@ const resolvers = {
           // If the stock doesn't exist in the portfolio, add it
           user.stocks.push({ stock: stock._id, quantity });
         }
+        //save user object
+        user = await user.save();
+
         // make an object with stockId property and a quanity
         const newPortfolioStock = {
           stock: stockId,
