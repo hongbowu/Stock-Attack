@@ -44,7 +44,7 @@ const typeDefs = `
 
     addStock(ticker: String! name: String!): Stock
     deleteStock(ticker: String!): Stock
-
+    addStocktoPortfolio(ticker: String!, name: String!, quantity: Float): User
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     

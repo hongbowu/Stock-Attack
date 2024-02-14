@@ -12,8 +12,11 @@ const stockSchema = new Schema({
     type: String,
     required: true,
 
-  },
+  }
 
+ 
+
+  
  
 
 });

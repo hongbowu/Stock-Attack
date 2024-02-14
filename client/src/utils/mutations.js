@@ -12,8 +12,13 @@ export const ADD_USER = gql`
   }
 `;
 
+<<<<<<< HEAD
 export const ADD_STOCK = gql`
   mutation addStock($ticker: String!, $name: String!) {
+=======
+export const ADD_STOCK_TO_USER = gql`
+  mutation addStock($ticker: String! name: String!) {
+>>>>>>> 7e05935 (Built out resolver functions)
     addStock(ticker: $ticker, name: $name) {
       ticker
       name

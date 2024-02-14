@@ -27,8 +27,11 @@ const userSchema = new Schema({
   },
   stocks: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Stock'
+      stockId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Stock'
+      },
+      quantity: Number
     }
   ]
  
