@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Nav from "./components/nav";
 import { StockProvider } from "./utils/stockContext";
+// import Nav from "./components/nav";
 
 //// -- WORKING CODE --
 // const client = new ApolloClient({
@@ -47,7 +48,7 @@ function App() {
   <StockProvider>
   <ApolloProvider client={client}>
     <Header />
-      <Nav />
+      {/* <Nav /> */}
       <Outlet />
     <Footer />
   </ApolloProvider>

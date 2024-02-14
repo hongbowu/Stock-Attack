@@ -90,7 +90,7 @@ const Login = () => {
               alignItems: 'center',
             }}
           >
-            <img src={logo} alt="logo" />
+            {/* <img src={logo} alt="logo" /> */}
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>

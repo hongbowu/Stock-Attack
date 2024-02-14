@@ -31,42 +31,30 @@ const Search = () => {
           //make an API call to add the stock to the user portfolio
       };
 
-    return (
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <Container component="main" maxWidth="xs" sx={{
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          height: '100vh',
-          marginTop: '-64px',
-        }}>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <img src={logo} alt="logo" />
-            <Typography component="h1" variant="h3">
-              Search
-            </Typography>
-            <SearchBar /> {/* onSubmit={handleSubmit} */}
-            <StockInfo stockData={dummyStockData} onAddToPortfolio={handleAddToPortfolio} />
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              align="center"
-              sx={{ mt: 5 }}
-
+      return (
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+          <Container component="main" maxWidth="xs" sx={{
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            height: '100vh',
+            marginTop: '-64px',
+          }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
             >
-              <img src={logo} alt="logo" />
+              {/* <img src={logo} alt="logo" /> */}
               <Typography component="h1" variant="h3">
                 Search
               </Typography>
-              <SearchBar />
+              <SearchBar /> {/* onSubmit={handleSubmit} */}
+              <StockInfo stockData={dummyStockData} onAddToPortfolio={handleAddToPortfolio} />
               <Typography
                 variant="body2"
                 color="text.secondary"
@@ -78,11 +66,10 @@ const Search = () => {
                 {new Date().getFullYear()}
                 {'.'}
               </Typography>
-            </Typography>
-          </Box>
-        </Container>
-    </ThemeProvider>
-  );    
-}
+            </Box>
+          </Container>
+        </ThemeProvider>
+      );    
+    }
 
 export default Search;
