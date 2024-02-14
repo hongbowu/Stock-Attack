@@ -4,6 +4,7 @@ import SearchBar from '../components/searchbar';
 import StockInfo from '../components/stock-info';
 import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import LogoutButton from '../components/logout';
 
 const darkTheme = createTheme({
   palette: {
@@ -34,6 +35,7 @@ const Search = () => {
       return (
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
+          <LogoutButton />
           <Container component="main" maxWidth="xs" sx={{
             display: 'flex', 
             flexDirection: 'column', 
