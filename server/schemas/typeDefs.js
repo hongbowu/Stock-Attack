@@ -5,7 +5,7 @@ const typeDefs = `
         name: String
         email: String
         password: String
-        stocks: [Stock]
+        stocks: [PortfolioStock]
 
     }
 
@@ -14,7 +14,11 @@ const typeDefs = `
         _id: ID
         ticker: String
         name: String
+    }
 
+    type PortfolioStock {
+        stock: Stock
+        quantity: Float
     }
 
     type Auth {

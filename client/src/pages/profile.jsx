@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ALL_STOCKS } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
 import StockCard from '../components/stock-card';
+import { useStockContext } from '../utils/stockContext';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({

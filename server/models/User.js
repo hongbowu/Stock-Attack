@@ -27,7 +27,7 @@ const userSchema = new Schema({
   },
   stocks: [
     {
-      stockId: {
+      stock: {
         type: Schema.Types.ObjectId,
         ref: 'Stock'
       },
