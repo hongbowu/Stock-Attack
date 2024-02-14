@@ -26,6 +26,7 @@ class AuthService {
     }
 
     login(idToken) {
+        // localStorage.setItem('id_token', idToken); // change to test. confirm with Hongbo  
         localStorage.removeItem('id_token', idToken);
         window.location.assign('/');
     }
