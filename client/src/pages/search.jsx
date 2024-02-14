@@ -13,12 +13,27 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import logo from '../assets/sa-logo-black.svg';
 import SearchBar from '../components/searchbar';
+import StockInfo from '../components/stock-info';
 
 const Search = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // const data = new FormData(event.currentTarget);
+      // dummy stock data
+      const dummyStockData = {
+        symbol: 'AAPL',
+        companyName: 'Apple Inc.',
+        prevClosePrice: 146.92,
+        currentPrice: 149.64
     };
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     // const data = new FormData(event.currentTarget);
+    // };
+
+        // dummy function to simulate adding to portfolio
+        const handleAddToPortfolio = (stock, quantity) => {
+          console.log(`Adding ${quantity} of ${stock.symbol} to portfolio`);
+          //make an API call to add the stock to the user portfolio
+      };
+
     return (
         <Container component="main" maxWidth="xs" sx={{
           display: 'flex', 
@@ -40,7 +55,8 @@ const Search = () => {
             <Typography component="h1" variant="h3">
               Search
             </Typography>
-            <SearchBar />
+            <SearchBar /> {/* onSubmit={handleSubmit} */}
+            <StockInfo stockData={dummyStockData} onAddToPortfolio={handleAddToPortfolio} />
             <Typography
               variant="body2"
               color="text.secondary"
