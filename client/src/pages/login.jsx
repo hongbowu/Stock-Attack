@@ -1,27 +1,13 @@
-
 import { React, useState } from "react";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import backgroundImage from "../images/login-background.png";
-import logo from "../assets/sa-logo-black.svg";
-import { useNavigate } from "react-router-dom";
-
+import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Paper, Box, Grid, Typography } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import backgroundImage from '../images/login-background.png';
+import logo from '../assets/sa-logo-white-sm.svg';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-
-
-import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Paper, Box, Grid, Typography } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-
+// import userSeeds from '../../server/seeder/userSeeds.json';
 
 const darkTheme = createTheme({
   palette: {
@@ -70,41 +56,14 @@ const Login = () => {
     });
   };
 
-
   return (
     <ThemeProvider theme={darkTheme}>
       <Grid
       container
       component="main"
-      sx={{ height: "100vh", width: "100vw", m: 0 }}
+      sx={{ height: '100vh', width: '100vw', m: 0 }}
     >
       <CssBaseline />
-
-      <Grid
-        item
-        xs={false}
-        sm={4}
-        md={7}
-        sx={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundRepeat: "no-repeat",
-          backgroundColor: (t) =>
-            t.palette.mode === "light"
-              ? t.palette.grey[50]
-              : t.palette.grey[900],
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <Box
-          sx={{
-            my: 8,
-            mx: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-
         <Grid
           item
           xs={false}
@@ -119,51 +78,10 @@ const Login = () => {
                 : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
-
-            component="form"
-            noValidate
-            onSubmit={handleFormSubmit} //added
-            sx={{ mt: 1 }}
-          >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={formState.email} //added
-              onChange={handleChange} //added
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={formState.password} //added
-              onChange={handleChange} //added
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-
             sx={{
               my: 8,
               mx: 4,
@@ -179,9 +97,8 @@ const Login = () => {
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
+              onSubmit={handleFormSubmit}
               sx={{ mt: 1 }}
-
             >
               <TextField
                 margin="normal"
@@ -192,6 +109,8 @@ const Login = () => {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={formState.email} //added
+                onChange={handleChange} //added
               />
               <TextField
                 margin="normal"
@@ -202,6 +121,8 @@ const Login = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={formState.password} //added
+                onChange={handleChange} //added
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -227,15 +148,6 @@ const Login = () => {
                   </Link>
                 </Grid>
               </Grid>
-
-            </Grid>
-            <Box mt={5} align="center">
-              <Typography variant="body2" color="text.secondary">
-                {"Copyright © "}
-                Stock Attack {new Date().getFullYear()}
-                {"."}
-              </Typography>
-
               <Box mt={5} align="center">
                 <Typography variant="body2" color="text.secondary">
                   {'Copyright © '}
@@ -243,7 +155,6 @@ const Login = () => {
                   {'.'}
                 </Typography>
               </Box>
-
             </Box>
           </Box>
         </Grid>
