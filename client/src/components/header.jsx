@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { CssBaseline, Box, Container, Typography, Paper } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline, Box, Container, Typography, Paper } from '@mui/material';
 import logo from '../../public/sa-logo.svg';
 
 const darkTheme = createTheme({

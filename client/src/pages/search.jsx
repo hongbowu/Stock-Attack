@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from '../assets/sa-logo-white-sm.svg';
 import SearchBar from '../components/searchbar';
 import StockInfo from '../components/stock-info';
-import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
 import LogoutButton from '../components/logout';
+// import logo from '../assets/sa-logo-white-sm.svg';
 
 const darkTheme = createTheme({
   palette: {
