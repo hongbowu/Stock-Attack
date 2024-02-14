@@ -13,7 +13,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_STOCK = gql`
-  mutation addStock($ticker: String! name: String!) {
+  mutation addStock($ticker: String!, $name: String!) {
     addStock(ticker: $ticker, name: $name) {
       ticker
       name
@@ -22,7 +22,7 @@ export const ADD_STOCK = gql`
 `;
 
 export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: $String!) {
+  mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
