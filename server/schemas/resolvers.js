@@ -55,6 +55,7 @@ const resolvers = {
         // TO DO: get the user object 
         let user = await User.findById(context.user._id);
         // is the stock in the users stocks array?
+        let stock = await Stock.findOne({ ticker });
         // if yes - update the user by adding more shares to that stock
         //if no put a new portfolio stock in the stocks array
         
