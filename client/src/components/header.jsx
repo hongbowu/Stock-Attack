@@ -47,9 +47,9 @@ const Header = () => {
               <img
                 src={logo}
                 alt="logo"
-                style={{ maxWidth: "2%", height: "auto" }}
+                style={{ maxWidth: "3%", height: "auto" }}
               />
-              <Typography variant="body2" color="text.secondary" sx={{ px: 2 }}>
+              <Typography variant="h5" color="text.secondary" sx={{ px: 2 }}>
                 Stock Attack
               </Typography>
             </Box>
@@ -65,6 +65,7 @@ const Header = () => {
                 href="https://github.com/hongbowu/Stock-Finder"
                 rel="noopener noreferrer"
                 target="_blank"
+                alt="github-logo"
               >
                 <GitHubIcon fontSize="large" />
               </Link>
