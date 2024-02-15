@@ -7,27 +7,28 @@ import { useStockContext } from '../utils/stockContext';
 
 
 
-function SearchBar() {
+
+function SearchBar({ setStockSearchResult }) {
   const [symbol, setSymbol] = useState('');
-
   const { updateStockData } = useStockContext();
-
   const [getAPIStockData, {loading, error, data}] = useLazyQuery(QUERY_SINGLE_STOCK)
 
-  console.log(data);
 
-  const handleSubmit = (event) => {
 
+  const handleSubmit = async (event) => {
     event.preventDefault();
     getAPIStockData({ variables: { symbol: symbol } });
     // Call fetchStockData function with the symbol input
+    
   };
 
   React.useEffect(() => {
     if (data) {
+      console.log('stock data', data)
       updateStockData(data);
+      setStockSearchResult(data.getStockAPIData);
     }
-  }, [data, updateStockData]);
+  }, [data, updateStockData, setStockSearchResult]);
 
   return (
     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
