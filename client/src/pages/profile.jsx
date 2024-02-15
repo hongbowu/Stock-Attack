@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Container, Button, Grid, Box, Paper, CssBaseline } from '@mui/material';
-import StockList from '../components/stock-list';
+import Header from "../components/header";
+import Footer from "../components/footer";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Typography, Container, Button, Grid, Paper, CssBaseline } from '@mui/material';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_STOCKS } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +10,8 @@ import StockCard from '../components/stock-card';
 import { useStockContext } from '../utils/stockContext';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ME, GET_PRICES } from '../utils/queries';
+import LogoutButton from '../components/logout';
+// import StockList from '../components/stock-list';
 
 const darkTheme = createTheme({
   palette: {
@@ -58,6 +62,9 @@ const Profile = () => {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       {/* <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Header />
+      <LogoutButton />
+      <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Typography variant="h2" component="h1" gutterBottom>
           My Portfolio
         </Typography>
@@ -99,6 +106,8 @@ const Profile = () => {
         ))}
       </Grid>
     </Container>
+
+      <Footer />
     </ThemeProvider>
   );
 };

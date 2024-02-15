@@ -1,14 +1,13 @@
 import { React, useState } from "react";
-import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Paper, Box, Grid, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Paper, Grid, Typography } from '@mui/material';
 import backgroundImage from '../images/login-background.png';
-import logo from '../assets/sa-logo-white-sm.svg';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 // import userSeeds from '../../server/seeder/userSeeds.json';
-
+   
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -61,8 +60,7 @@ const Login = () => {
       <Grid
       container
       component="main"
-      sx={{ height: '100vh', width: '100vw', m: 0 }}
-    >
+      sx={{ height: '100vh', width: '100vw', m: 0 }}>
       <CssBaseline />
         <Grid
           item
@@ -90,7 +88,6 @@ const Login = () => {
               alignItems: 'center',
             }}
           >
-            <img src={logo} alt="logo" />
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
@@ -164,3 +161,5 @@ const Login = () => {
 };
 
 export default Login;
+
+

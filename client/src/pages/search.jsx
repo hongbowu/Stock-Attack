@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import logo from '../assets/sa-logo-white-sm.svg';
+import Header from "../components/header";
+import Footer from "../components/footer";
 import SearchBar from '../components/searchbar';
 import StockInfo from '../components/stock-info';
-import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ADD_STOCK_TO_USER } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
+import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
+import LogoutButton from '../components/logout';
+// import logo from '../assets/sa-logo-white-sm.svg';
 
 const darkTheme = createTheme({
   palette: {
@@ -19,12 +23,12 @@ const Search = () => {
 
   const [ stockSearchResult, setStockSearchResult ] = useState({})
       // dummy stock data
-      const dummyStockData = {
-        symbol: 'AAPL',
-        companyName: 'Apple Inc.',
-        prevClosePrice: 146.92,
-        currentPrice: 149.64
-    };
+    //   const dummyStockData = {
+    //     symbol: 'AAPL',
+    //     companyName: 'Apple Inc.',
+    //     prevClosePrice: 146.92,
+    //     currentPrice: 149.64
+    // };
     // const handleSubmit = (event) => {
     //     event.preventDefault();
     //     // const data = new FormData(event.currentTarget);
@@ -73,34 +77,24 @@ const Search = () => {
             </Typography>
             <SearchBar setStockSearchResult={setStockSearchResult}/> {/* onSubmit={handleSubmit} */}
             <StockInfo stockData={stockSearchResult} onAddToPortfolio={clickHandler} />
-            <Typography
+            <Box
               variant="body2"
               color="text.secondary"
               align="center"
               sx={{ mt: 5 }}
 
             >
-              <img src={logo} alt="logo" />
+              {/* <img src={logo} alt="logo" /> */}
               <Typography component="h1" variant="h3">
                 Search
               </Typography>
-              <SearchBar />
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                align="center"
-                sx={{ mt: 5 }}
-              >
-                {'Copyright © '}
-                Stock Attack 
-                {new Date().getFullYear()}
-                {'.'}
-              </Typography>
-            </Typography>
-          </Box>
-        </Container>
-    </ThemeProvider>
-  );    
-}
+              <SearchBar /> {/* onSubmit={handleSubmit} */}
+              <StockInfo stockData={dummyStockData} onAddToPortfolio={handleAddToPortfolio} />
+            </Box>
+          </Container>
+          <Footer />
+        </ThemeProvider>
+      );    
+    }
 
 export default Search;
