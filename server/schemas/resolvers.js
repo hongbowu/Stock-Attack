@@ -109,20 +109,7 @@ const resolvers = {
         console.log(await user.populate({path: 'stocks', populate: 'stock'}))
         return await User.findById(context.user._id).populate({path: 'stocks', populate: 'stock'})
 
-        // // Check if the stock is already in the user's portfolio
-        // let portfolioStock = user.stocks.find(stock => stock.stock.equals(stock._id));
-
-        // if (portfolioStock) {
-        //   // If the stock exists in the portfolio, update the quantity
-        //   portfolioStock.quantity += quantity;
-        // } else {
-        //   // If the stock doesn't exist in the portfolio, add it
-        //   user.stocks.push({ stock: stock._id, quantity });
-        // }
-        // //save user object
-        // user = await user.save();
-
-        // //populate stock field 
+    
         
     
         
