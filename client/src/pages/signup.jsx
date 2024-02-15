@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Box, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Typography, Container } from '@mui/material';
-// import logo from '../assets/sa-logo-white-sm.svg';
+import { Box, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Typography, Paper, Container } from '@mui/material';
+import backgroundImage from '../images/login-background.png';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { ADD_USER } from '../utils/mutations';
@@ -69,25 +69,39 @@ const Signup = () => {
 
 
 
+  
   return (
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <Container component="main" maxWidth="xs" sx={{
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        height: '100vh',
-        marginTop: '-64px',
-      }}>
-        <Box
+    <Grid
+    container
+    component="main"
+    sx={{ height: '100vh', width: '100vw', m: 0 }}>
+    <CssBaseline />
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: (t) =>
+            t.palette.mode === 'light'
+              ? t.palette.grey[50]
+              : t.palette.grey[900],
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            m: 4,
           }}
         >
-          {/* <img src={logo} alt="logo" /> */}
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
@@ -107,32 +121,6 @@ const Signup = () => {
                   onChange={handleChange} //added
                 />
               </Grid>
-
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  value={formState.firstName} //added
-                  onChange={handleChange} //added
-                />
-              </Grid> */}
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  value={formState.lastName} //added
-                  onChange={handleChange} //added
-                />
-              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   required
@@ -193,9 +181,139 @@ const Signup = () => {
             {'.'}
           </Typography>
         </Box>
-      </Container>
-    </ThemeProvider>
-  );
+      </Grid>
+    </Grid>
+  </ThemeProvider>
+);
 };
 
 export default Signup;
+
+
+    //   return (
+    //     <ThemeProvider theme={darkTheme}>
+    //       <CssBaseline />
+    //       <Container component="main" maxWidth="xs" sx={{
+    //         display: 'flex', 
+    //         flexDirection: 'column', 
+    //         alignItems: 'center', 
+    //         justifyContent: 'center', 
+    //         height: '100vh',
+    //         marginTop: '-64px',
+    //       }}>
+    //         <Box
+    //           sx={{
+    //             display: 'flex',
+    //             flexDirection: 'column',
+    //             alignItems: 'center',
+    //           }}
+    //         >
+    //           <Typography component="h1" variant="h5">
+    //             Sign up
+    //           </Typography>
+    //           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+    //             <Grid container spacing={2}>
+    //               {/* Form Fields */}
+    //               <Grid item xs={12}>
+    //                 <TextField
+    //                   autoComplete="given-name"
+    //                   name="name"
+    //                   required
+    //                   fullWidth
+    //                   id="name"
+    //                   label="Name"
+    //                   autoFocus
+    //                   value={formState.name} //added
+    //                   onChange={handleChange} //added
+    //                 />
+    //               </Grid>
+    
+    //               {/* <Grid item xs={12} sm={6}>
+    //                 <TextField
+    //                   autoComplete="given-name"
+    //                   name="firstName"
+    //                   required
+    //                   fullWidth
+    //                   id="firstName"
+    //                   label="First Name"
+    //                   autoFocus
+    //                   value={formState.firstName} //added
+    //                   onChange={handleChange} //added
+    //                 />
+    //               </Grid> */}
+    //               {/* <Grid item xs={12} sm={6}>
+    //                 <TextField
+    //                   required
+    //                   fullWidth
+    //                   id="lastName"
+    //                   label="Last Name"
+    //                   name="lastName"
+    //                   autoComplete="family-name"
+    //                   value={formState.lastName} //added
+    //                   onChange={handleChange} //added
+    //                 />
+    //               </Grid> */}
+    //               <Grid item xs={12}>
+    //                 <TextField
+    //                   required
+    //                   fullWidth
+    //                   id="email"
+    //                   label="Email Address"
+    //                   name="email"
+    //                   autoComplete="email"
+    //                   value={formState.email} //added
+    //                   onChange={handleChange} //added
+    //                 />
+    //               </Grid>
+    //               <Grid item xs={12}>
+    //                 <TextField
+    //                   required
+    //                   fullWidth
+    //                   name="password"
+    //                   label="Password"
+    //                   type="password"
+    //                   id="password"
+    //                   autoComplete="new-password"
+    //                   value={formState.password} //added
+    //                   onChange={handleChange} //added
+    //                 />
+    //               </Grid>
+    //               <Grid item xs={12}>
+    //                 <FormControlLabel
+    //                   control={<Checkbox value="allowExtraEmails" color="primary" />}
+    //                   label="I want to receive updates via email."
+    //                 />
+    //               </Grid>
+    //             </Grid>
+    //             <Button
+    //               type="submit"
+    //               fullWidth
+    //               variant="outlined"
+    //               sx={{ mt: 3, mb: 2 }}
+    //             >
+    //               Sign Up
+    //             </Button>
+    //             <Grid container justifyContent="flex-end">
+    //               <Grid item>
+    //                 <Link href="#" variant="body2">
+    //                   Already have an account? Sign in
+    //                 </Link>
+    //               </Grid>
+    //             </Grid>
+    //           </Box>
+    //           <Typography
+    //             variant="body2"
+    //             color="text.secondary"
+    //             align="center"
+    //             sx={{ mt: 5 }}
+    //           >
+    //             {'Copyright © '}
+    //             Stock Attack 
+    //             {new Date().getFullYear()}
+    //             {'.'}
+    //           </Typography>
+    //         </Box>
+    //       </Container>
+    //     </ThemeProvider>
+    //   );
+    // };
