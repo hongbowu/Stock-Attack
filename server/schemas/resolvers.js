@@ -83,11 +83,11 @@ const resolvers = {
           stockId = stock._id
         }
 
-        // TO DO: get the user object 
+        
         let user = await User.findById(context.user._id).populate({ path: "stocks", populate: "stock"});
 
         
-        // is the stock in the users stocks array?
+       
         console.log("user stocks", user.stocks)
         console.log(stockId)
         const stockFound = user.stocks.filter(stock => stock.stock?._id.equals(stockId)).length > 0;
