@@ -11,7 +11,7 @@ const LogoutButton = () => {
   };
 
   return (
-    <Button color="inherit" onClick={handleLogout}>Logout</Button>
+    <Button variant='outlined'  color="primary" onClick={handleLogout}>Logout</Button>
   );
 };
 
