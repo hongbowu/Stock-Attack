@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import StockCard from '../components/stock-card';
 import { useStockContext } from '../utils/stockContext';
 import { ME, GET_PRICES } from '../utils/queries';
-import LogoutButton from '../components/logout';
 // import StockList from '../components/stock-list';
 
 const darkTheme = createTheme({
@@ -60,9 +59,8 @@ const Profile = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      {/* <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Header />
-      <LogoutButton />
+      {/* <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Typography variant="h2" component="h1" gutterBottom>
           My Portfolio

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, Container, Typography, Paper, Link } from "@mui/material";
 import logo from "../../public/sa-logo.svg";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Logout from './logout';
 
 const Header = () => {
   return (
@@ -30,9 +31,12 @@ const Header = () => {
                 flexGrow: 1,
                 justifyContent: "start",
                 display: "flex",
-                m: 1,
+                my: 1,
               }}
             >
+              <Box sx={{ mr: 4, ml: -2 }} >
+                <Logout />
+              </Box>
               <img
                 src={logo}
                 alt="logo"
