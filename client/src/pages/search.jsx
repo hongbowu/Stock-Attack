@@ -8,7 +8,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ADD_STOCK_TO_USER } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import { Box, Button, Typography, Container, CssBaseline, Paper } from '@mui/material';
-import LogoutButton from '../components/logout';
 // import logo from '../assets/sa-logo-white-sm.svg';
 
 const darkTheme = createTheme({
@@ -56,6 +55,7 @@ const Search = () => {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
+        <Header />
         <Container component="main" maxWidth="xs" sx={{
           display: 'flex', 
           flexDirection: 'column', 
@@ -71,7 +71,6 @@ const Search = () => {
               alignItems: 'center',
             }}
           >
-            <img src={logo} alt="logo" />
             <Typography component="h1" variant="h3">
               Search
             </Typography>
