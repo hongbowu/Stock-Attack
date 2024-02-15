@@ -51,9 +51,7 @@ const Profile = () => {
     navigate('/search');
   };
 
-  // const calculateTotalValue = () => {
-  //   return filteredStocks.reduce((total, stock) => total + stock.value, 0);
-  // };
+
 
   if (loading) return <Typography>Loading...</Typography>;
 
