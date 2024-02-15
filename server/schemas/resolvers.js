@@ -82,7 +82,9 @@ const resolvers = {
       const user = await User.create({ name, email, password });
       const token = signToken(user);
 
-      return { token, profile }
+      // return { token, profile } ////generating error in graphql to add user, no profile
+      return { token, user } // changed to this one instead
+
       
     },
 
@@ -104,9 +106,6 @@ const resolvers = {
 
 
     }
-
-
-
 
   }
 
