@@ -82,12 +82,9 @@ const resolvers = {
           stock = await Stock.create({ ticker, name })
           stockId = stock._id
         }
-
-        
+ 
         let user = await User.findById(context.user._id).populate({ path: "stocks", populate: "stock"});
 
-        
-       
         console.log("user stocks", user.stocks)
         console.log(stockId)
         const stockFound = user.stocks.filter(stock => stock.stock?._id.equals(stockId)).length > 0;
