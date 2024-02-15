@@ -1,22 +1,11 @@
 import * as React from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { CssBaseline, Box, Container, Typography, Paper, Link } from "@mui/material";
+import { Box, Container, Typography, Paper, Link } from "@mui/material";
 import logo from "../../public/sa-logo.svg";
 import GitHubIcon from "@mui/icons-material/GitHub";
-
-const preventDefault = (event) => event.preventDefault();
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
 
 const Header = () => {
   return (
     <header>
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
         <Paper
           sx={{
             marginBottom: "calc(2% + 10px)",
@@ -47,9 +36,9 @@ const Header = () => {
               <img
                 src={logo}
                 alt="logo"
-                style={{ maxWidth: "2%", height: "auto" }}
+                style={{ maxWidth: "3%", height: "auto" }}
               />
-              <Typography variant="body2" color="text.secondary" sx={{ px: 2 }}>
+              <Typography variant="h5" color="text.secondary" sx={{ px: 2 }}>
                 Stock Attack
               </Typography>
             </Box>
@@ -65,13 +54,13 @@ const Header = () => {
                 href="https://github.com/hongbowu/Stock-Finder"
                 rel="noopener noreferrer"
                 target="_blank"
+                alt="github-logo"
               >
                 <GitHubIcon fontSize="large" />
               </Link>
             </Box>
           </Container>
         </Paper>
-      </ThemeProvider>
     </header>
   );
 };

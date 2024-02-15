@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Header from "../components/header";
+import Footer from "../components/footer";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box, Typography, Container, Button, Grid, Paper, CssBaseline } from '@mui/material';
 import { useQuery } from '@apollo/client';
@@ -49,6 +51,7 @@ const Profile = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <Header />
       <LogoutButton />
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Typography variant="h2" component="h1" gutterBottom>
@@ -70,6 +73,7 @@ const Profile = () => {
           ))}
         </Grid>
       </Container>
+      <Footer />
     </ThemeProvider>
   );
 };
