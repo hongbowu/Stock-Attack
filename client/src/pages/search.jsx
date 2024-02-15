@@ -77,19 +77,7 @@ const Search = () => {
             </Typography>
             <SearchBar setStockSearchResult={setStockSearchResult}/> {/* onSubmit={handleSubmit} */}
             <StockInfo stockData={stockSearchResult} onAddToPortfolio={clickHandler} />
-            <Box
-              variant="body2"
-              color="text.secondary"
-              align="center"
-              sx={{ mt: 5 }}
-
-            >
-              {/* <img src={logo} alt="logo" /> */}
-              <Typography component="h1" variant="h3">
-                Search
-              </Typography>
-              <SearchBar /> {/* onSubmit={handleSubmit} */}
-              <StockInfo stockData={dummyStockData} onAddToPortfolio={handleAddToPortfolio} />
+            
             </Box>
           </Container>
           <Footer />

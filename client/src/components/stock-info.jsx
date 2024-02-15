@@ -27,10 +27,10 @@ const StockInfo = ({ stockData, onAddToPortfolio }) => {
           {stockData.symbol} - {stockData.companyName}
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Previous Close: ${stockData.prevClosePrice.toFixed(2)}
+          Previous Close: ${stockData?.prevClosePrice?.toFixed(2)}
         </Typography>
         <Typography variant="body1">
-          Current Price: ${stockData.currentPrice.toFixed(2)}
+          Current Price: ${stockData?.currentPrice?.toFixed(2)}
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 2 }}>
           <TextField
