@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -8,13 +9,14 @@ import Box from '@mui/material/Box';
 
 const StockInfo = ({ stockData, onAddToPortfolio }) => {
   const [quantity, setQuantity] = useState(0);
+  const navigate = useNavigate();
 
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
   };
 
   const handleAddClick = () => {
-    onAddToPortfolio(stockData, quantity);
+    onAddToPortfolio(stockData, Number(quantity));
   };
 
   return (
@@ -34,7 +36,10 @@ const StockInfo = ({ stockData, onAddToPortfolio }) => {
             inputProps={{ min: 0 }}
             label="Quantity"
           />
-          <Button variant="contained" color="primary" onClick={() => onAddToPortfolio(stockData.symbol, stockData.companyName, quantity)}>
+          <Button variant="contained" color="primary" onClick={() => {
+            onAddToPortfolio(stockData.symbol, stockData.companyName, quantity)
+            navigate('/profile')
+          }}>
             Add to Portfolio
           </Button>
         </Box>

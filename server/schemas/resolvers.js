@@ -29,7 +29,37 @@ const resolvers = {
       getStockAPIData: async(parent, {symbol}) => {
         console.log("The symbol", symbol)
         return await fetchStockData(symbol)
-      }
+      },
+
+      me: async (parent, args, context) => {
+
+        const user = await User.findById(context.user._id).populate({
+          path: 'stocks.stock'
+        });
+      
+        return user;
+      },
+
+      getPrices: async (parent, args, context) => {
+        const user = await User.findById(context.user._id).populate({
+          path: 'stocks.stock'
+        });
+
+        const stocks = user.stocks;
+        const prices = {};
+        for (let i = 0; i < stocks.length; i++) {
+          const stock = stocks[i];
+          const ticker = stock.stock.ticker;
+          if (!prices[ticker]) {
+            const stockData = await fetchStockData(ticker);
+            prices[ticker] = stockData.currentPrice;
+          }
+        }
+
+        console.log('prices', prices);
+
+        return JSON.stringify(prices);
+      },
 
   },
 
@@ -39,9 +69,10 @@ const resolvers = {
     },
 
     addStocktoPortfolio: async (_, { ticker, name, quantity}, context) => {
-      if (context.user) {
+      try {
+        if (context.user) {
         // is the ticker in the database
-        let stock = await User.findOne({ ticker });
+        let stock = await Stock.findOne({ ticker });
         let stockId; 
         if (stock) {
           // yes? get it's id
@@ -53,37 +84,73 @@ const resolvers = {
         }
 
         // TO DO: get the user object 
-        let user = await User.findById(context.user._id);
+        let user = await User.findById(context.user._id).populate({ path: "stocks", populate: "stock"});
+
+        
         // is the stock in the users stocks array?
-        stock = await Stock.findOne({ ticker });
+        console.log("user stocks", user.stocks)
+        console.log(stockId)
+        const stockFound = user.stocks.filter(stock => stock.stock?._id.equals(stockId)).length > 0;
     
-        if (!stock) {
-          stock = await Stock.create({ ticker, name });
-        }
-
-        // Check if the stock is already in the user's portfolio
-        let portfolioStock = user.stocks.find(stock => stock.stock.equals(stock._id));
-
-        if (portfolioStock) {
-          // If the stock exists in the portfolio, update the quantity
-          portfolioStock.quantity += quantity;
+        console.log("Stock found?", stockFound)
+        if (stockFound) {
+          // // const updatedStocks = user.stocks.toJSON().map(stock => {
+          // //   const updatedStock = { ...stock }
+          // //   console.log(updatedStock)
+          // //   if (updatedStock.stock.ticker === ticker) {
+          // //     updatedStock.quantity = stock.quantity + quantity
+          // //   }
+            
+          // //   return updatedStock;
+          // // })
+          // // console.log("updated stocks", updatedStocks)
+          // // //Find the user 
+          // // await user.updateOne({$set: {stocks: updatedStocks}})
+          // const updatedUser = await User.findOneAndUpdate({ _id: context.user._id, 'stocks.stock._id': stockId}, {
+          //   $set: {
+          //     "stocks.$.quantity": 57
+          //   }
+          // }).populate({path: "stocks", populate: "stock"})
+          // return user.populate({path: "stocks", populate: "stock"})
         } else {
-          // If the stock doesn't exist in the portfolio, add it
-          user.stocks.push({ stock: stock._id, quantity });
+          const newPortfolioStock = {
+            stock: stockId,
+            quantity
+          }
+          await user.updateOne({$push: {stocks: newPortfolioStock}})
         }
-        //save user object
-        user = await user.save();
 
-        //populate stock field 
-        return await user.populate('stocks.stock')
-      } catch (error) {
-        console.error('Error adding stock to portfolio:', error);
-        // make an object with stockId property and a quanity
-        const newPortfolioStock = {
-          stock: stockId,
-          quantity
-        }
-        console.log(newPortfolioStock)
+        user.save()
+        console.log(user.stocks)
+
+        console.log(await user.populate({path: 'stocks', populate: 'stock'}))
+        return await User.findById(context.user._id).populate({path: 'stocks', populate: 'stock'})
+
+        // // Check if the stock is already in the user's portfolio
+        // let portfolioStock = user.stocks.find(stock => stock.stock.equals(stock._id));
+
+        // if (portfolioStock) {
+        //   // If the stock exists in the portfolio, update the quantity
+        //   portfolioStock.quantity += quantity;
+        // } else {
+        //   // If the stock doesn't exist in the portfolio, add it
+        //   user.stocks.push({ stock: stock._id, quantity });
+        // }
+        // //save user object
+        // user = await user.save();
+
+        // //populate stock field 
+        
+    
+        
+        
+        // console.error('Error adding stock to portfolio:', error);
+        // // make an object with stockId property and a quanity
+        // const newPortfolioStock = {
+        //   stock: stockId,
+        //   quantity
+        // }
+        // console.log(newPortfolioStock)
         
 
 
@@ -97,9 +164,11 @@ const resolvers = {
 
         // );
   
-        return await user.populate({ path: "stocks", populate: "stock"});
       }
-    },
+    } catch (error) {
+      console.error(error)
+    }
+  },
 
     deleteStock: async (parent, { ticker }) => {
       return Stock.findOneAndDelete({ ticker: ticker });

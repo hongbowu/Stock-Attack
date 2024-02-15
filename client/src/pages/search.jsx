@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/sa-logo-white-sm.svg';
 import SearchBar from '../components/searchbar';
 import StockInfo from '../components/stock-info';
@@ -16,6 +16,8 @@ const darkTheme = createTheme({
 
 
 const Search = () => {
+
+  const [ stockSearchResult, setStockSearchResult ] = useState({})
       // dummy stock data
       const dummyStockData = {
         symbol: 'AAPL',
@@ -33,7 +35,7 @@ const Search = () => {
     const clickHandler = async (ticker, name, quantity) => {
       console.log("Adding a stock")
     try {
-      await addStockToUser({ variables: { ticker, name, quantity } });
+      await addStockToUser({ variables: { ticker, name, quantity: Number(quantity) } });
       console.log(newStockData)
       // Optionally, you can handle success here
     } catch (error) {
@@ -69,8 +71,8 @@ const Search = () => {
             <Typography component="h1" variant="h3">
               Search
             </Typography>
-            <SearchBar /> {/* onSubmit={handleSubmit} */}
-            <StockInfo stockData={dummyStockData} onAddToPortfolio={clickHandler} />
+            <SearchBar setStockSearchResult={setStockSearchResult}/> {/* onSubmit={handleSubmit} */}
+            <StockInfo stockData={stockSearchResult} onAddToPortfolio={clickHandler} />
             <Typography
               variant="body2"
               color="text.secondary"

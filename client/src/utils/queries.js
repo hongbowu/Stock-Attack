@@ -50,3 +50,26 @@ query GetStockAPIData($symbol: String!) {
     }
   }   
 `;
+
+
+export const ME = gql`
+query Query {
+    me {
+      name
+      email
+      _id
+      stocks {
+        quantity
+        stock {
+          name
+          ticker
+        }
+      }
+    }
+  }`;
+
+  export const GET_PRICES = gql`
+  query Query {
+    getPrices
+  }
+  `

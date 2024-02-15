@@ -34,13 +34,13 @@ const typeDefs = `
         currentPrice: Float
     }
 
-
-
     type Query {
         stocks: [Stock]
         users: [User]
         user(id: ID!): User
-        getStockAPIData(symbol: String!): APIStock 
+        getStockAPIData(symbol: String!): APIStock
+        me: User
+        getPrices: String
     }
 
 
