@@ -60,29 +60,7 @@ const Profile = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      {/* <Container maxWidth="lg" sx={{ mt: 4 }}>
-      <Header />
-      <LogoutButton />
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Typography variant="h2" component="h1" gutterBottom>
-          My Portfolio
-        </Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
-          <Typography variant="h4" component="h2">
-            Total Portfolio Value: ${calculateTotalValue().toLocaleString()}
-          </Typography>
-          <Button variant="outlined" onClick={handleSearch}>
-            Search Stocks
-          </Button>
-        </Box>
-        <Grid container spacing={2}>
-          {filteredStocks.map((stock, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <StockCard stock={stock} />
-            </Grid>
-          ))}
-        </Grid>
-      </Container> */}
+ 
       <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Typography variant="h2" component="h1" gutterBottom>
         My Portfolio
