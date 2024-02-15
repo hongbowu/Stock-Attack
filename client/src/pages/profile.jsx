@@ -36,16 +36,7 @@ const Profile = () => {
 
   console.log('user', user)
 
-  // const [filteredStocks, setFilteredStocks] = useState(dummyStocks); // dummy data for now
 
-  // const { stockData } = useStockContext();
-  // console.log('stockData', stockData);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setFilteredStocks(data.stocks);
-  //   }
-  // }, [data]);
 
   const handleSearch = () => {
     navigate('/search');
