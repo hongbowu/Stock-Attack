@@ -1,18 +1,21 @@
 import * as React from "react";
-import { Box, Container, Typography, Paper, Link } from "@mui/material";
+import { CssBaseline, Box, Container, Typography, Paper, Link } from "@mui/material";
 import logo from "../../public/sa-logo.svg";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Logout from './logout';
+import ProfileButton from "./profileButton";
 
 const Header = () => {
   return (
     <header>
+      <CssBaseline />
         <Paper
           sx={{
-            marginBottom: "calc(2% + 10px)",
+            marginBottom: "10px",
             width: "100%",
             top: 0,
             padding: 1,
+            display: "flex"
           }}
           component="header"
           square
@@ -34,9 +37,6 @@ const Header = () => {
                 my: 1,
               }}
             >
-              <Box sx={{ mr: 4, ml: -2 }} >
-                <Logout />
-              </Box>
               <img
                 src={logo}
                 alt="logo"
@@ -45,6 +45,12 @@ const Header = () => {
               <Typography variant="h5" color="text.secondary" sx={{ px: 2 }}>
                 Stock Attack
               </Typography>
+              <Box sx={{ mx: 1, }} >
+                <Logout />
+              </Box>
+              <Box sx={{ mx: 1, }} >
+                <ProfileButton />
+              </Box>
             </Box>
             <Box
               sx={{
