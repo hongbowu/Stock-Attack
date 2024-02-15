@@ -113,26 +113,7 @@ const resolvers = {
         
     
         
-        
-        // console.error('Error adding stock to portfolio:', error);
-        // // make an object with stockId property and a quanity
-        // const newPortfolioStock = {
-        //   stock: stockId,
-        //   quantity
-        // }
-        // console.log(newPortfolioStock)
-        
 
-
-        // add the object to logged in user's list of stocks
-        // const user = await User.findByIdAndUpdate(context.user._id, 
-        //   {
-        //   $push: {
-        //     stocks: newPortfolioStock
-        //           },
-        //   }, {new: true}
-
-        // );
   
       }
     } catch (error) {
