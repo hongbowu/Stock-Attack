@@ -18,12 +18,6 @@ const darkTheme = createTheme({
   },
 });
 
-// placeholder for the stocks data and would be replaced with your API call
-// const dummyStocks = [
-//   { name: 'Apple', ticker: 'AAPL', value: 15000 },
-//   { name: 'Microsoft', ticker: 'MSFT', value: 20000 },
-//   { name: 'Google', ticker: 'GOOGL', value: 25000 },
-// ];
 
 const Profile = () => {
   const navigate = useNavigate(); 
