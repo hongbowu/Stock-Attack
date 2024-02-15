@@ -94,24 +94,7 @@ const resolvers = {
     
         console.log("Stock found?", stockFound)
         if (stockFound) {
-          // // const updatedStocks = user.stocks.toJSON().map(stock => {
-          // //   const updatedStock = { ...stock }
-          // //   console.log(updatedStock)
-          // //   if (updatedStock.stock.ticker === ticker) {
-          // //     updatedStock.quantity = stock.quantity + quantity
-          // //   }
-            
-          // //   return updatedStock;
-          // // })
-          // // console.log("updated stocks", updatedStocks)
-          // // //Find the user 
-          // // await user.updateOne({$set: {stocks: updatedStocks}})
-          // const updatedUser = await User.findOneAndUpdate({ _id: context.user._id, 'stocks.stock._id': stockId}, {
-          //   $set: {
-          //     "stocks.$.quantity": 57
-          //   }
-          // }).populate({path: "stocks", populate: "stock"})
-          // return user.populate({path: "stocks", populate: "stock"})
+  
         } else {
           const newPortfolioStock = {
             stock: stockId,
