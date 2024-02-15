@@ -30,9 +30,9 @@ Open your browser and navigate to http://localhost:3000 to access the applicatio
 https://stock-attack.onrender.com/
 
 ## pics for App
-![alt text](homepage.png)  ![alt text](login-page.png)
-![alt text](sign-up-page.png)  ![alt text](profile-page.png)
-![alt text](search-page.png)
+![alt text](images/homepage.png)  ![alt text](images/login-page.png)
+![alt text](images/sign-up-page.png)  ![alt text](images/profile-page.png)
+![alt text](images/search-page.png)
 
 ## Feedback and Contact
 We welcome any feedback or suggestions you may have. Feel free to reach out to us at 
